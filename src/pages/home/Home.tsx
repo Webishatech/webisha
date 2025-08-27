@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import companyProfile from '../../assets/images/clients/client1.png';
+import qtrHome from '../../assets/images/clients/qtr_home.png';
+import qtrTasks  from '../../assets/images/clients/qtr_tasks.png';
+import saiapp from '../../assets/images/clients/saiapp.png';
+
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -7,7 +12,7 @@ const Home: React.FC = () => {
     const slides = [
         {
             title: "WebIsha Tech is a Visionary",
-            subtitle: "Gartner® Magic Quadrant™ for Custom Software Development Services, 2024",
+            subtitle: "Building modern AI-driven applications, from custom web platforms to enterprise-grade software, with full-cycle project delivery",
             ctaText: "Learn more",
         },
         {
@@ -40,12 +45,14 @@ const Home: React.FC = () => {
                     <button className="cta-button">{slides[currentSlide].ctaText}</button>
                 </div>
                 <div className="hero-visual">
-                    <div className="geometric-shapes"></div>
+                    <div className="company-profile">
+                        <img src={companyProfile} alt="Company Profile" />
+                    </div>
                 </div>
 
                 {/* Slider Controls */}
                 <div className="slider-controls">
-                    <div className="dots">
+                    {/* <div className="dots">
                         {slides.map((_, index) => (
                             <button
                                 key={index}
@@ -54,7 +61,7 @@ const Home: React.FC = () => {
                                 aria-label={`Go to slide ${index + 1}`}
                             />
                         ))}
-                    </div>
+                    </div> */}
                     <div className="navigation-buttons">
                         <button onClick={prevSlide} className="nav-button prev" aria-label="Previous slide">
                             <span>←</span>
@@ -78,8 +85,19 @@ const Home: React.FC = () => {
                             software engineering to enable our clients to thrive.</p>
                     </div>
                     <div className="content-image">
-                        {/* Replace with actual image */}
-                        <div className="placeholder-image"></div>
+                        <div className="image-gallery">
+                          
+                            <div className="gallery-item medium">
+                                <img src={qtrTasks} alt="Project 2" />
+                            </div>
+                            <div className="gallery-item medium">
+                                <img src={saiapp} alt="Project 3" />
+                            </div>
+                            <div className="gallery-item medium">
+                                <img src={qtrHome} alt="Project 4" />
+                            </div>
+                          
+                        </div>
                     </div>
                 </div>
             </section>

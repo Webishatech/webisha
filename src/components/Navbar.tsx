@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.svg';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import logo from '../assets/images/logo/webisha_tech3.png';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -21,14 +23,27 @@ const Navbar: React.FC = () => {
                     <img src={logo} alt="WebIshaTech" className="logo-image" />
                 </Link>
 
-                <div className="nav-menu">
+                {/* Desktop Menu */}
+                <div className="nav-menu desktop-menu">
                     <Link to="/" className="nav-item" onClick={closeMenu}>Home</Link>
                     <Link to="/about" className="nav-item" onClick={closeMenu}>About</Link>
                     <Link to="/signin" className="nav-item" onClick={closeMenu}>Sign In</Link>
+                </div>
 
-                    <div onClick={toggleMenu}>
-                        <i className="fas fa-bars"></i>
-                    </div>
+                {/* Hamburger Menu Button */}
+                <div className="hamburger-menu" onClick={toggleMenu}>
+                    {isMenuOpen ? (
+                        <CloseIcon className="hamburger-icon close-icon" />
+                    ) : (
+                        <MenuIcon className="hamburger-icon" />
+                    )}
+                </div>
+
+                {/* Mobile Menu */}
+                <div className={`nav-menu mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+                    <Link to="/" className="nav-item" onClick={closeMenu}>Home</Link>
+                    <Link to="/about" className="nav-item" onClick={closeMenu}>About</Link>
+                    <Link to="/signin" className="nav-item" onClick={closeMenu}>Sign In</Link>
                 </div>
             </div>
         </nav>
