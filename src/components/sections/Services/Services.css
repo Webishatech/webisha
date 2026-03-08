@@ -1,119 +1,174 @@
+/* One left offset for the whole section so all text sits on the same vertical line */
 .services-section {
-  padding: 120px 40px;
-  background-color: #ffffff;
+  padding: var(--section-spacing, 80px) 0;
+  background-color: #f0f0f0;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 85% 20%, rgba(200, 200, 200, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 10% 80%, rgba(180, 180, 180, 0.08) 0%, transparent 50%);
 }
 
 .services-container {
-  max-width: 1400px;
-  margin: 0 auto;
+  padding-left: var(--content-padding-x, 48px);
+  padding-right: var(--content-padding-x, 48px);
 }
 
+/* Same left indent as card content so title and card text align on one line */
 .services-header {
-  text-align: center;
-  margin-bottom: 80px;
+  text-align: left;
+  margin-bottom: 56px;
+}
+
+.services-header .section-title {
+  color: #2a2a2a;
+}
+
+.services-header .section-subtitle {
+  color: #666666;
+  margin-top: 12px;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 28px;
 }
 
+/* Card: thin border, same left padding as header so content aligns with section title */
 .service-card {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 50px 40px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  border: 1px solid #e8e8e8;
+  padding: 32px 28px 32px var(--content-inner, 16px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.25s ease;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  text-align: left;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.service-icon {
-  font-size: 72px;
-  margin-bottom: 30px;
-  line-height: 1;
-  display: block;
+.service-icon-wrap {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2a2a2a;
+}
+
+.service-body {
+  flex: 1;
+  min-width: 0;
 }
 
 .service-title {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 26px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 20px;
   font-weight: 700;
   color: #2a2a2a;
-  margin: 0 0 20px 0;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
 }
 
 .service-description {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
   color: #666666;
-  margin: 0 0 30px 0;
-  flex-grow: 1;
+  margin: 0 0 20px 0;
 }
 
+/* Light grey button, dark text, right arrow (per reference image) */
 .service-button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
-  background-color: #f5f5f5;
-  border: none;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: #e8e8e8;
+  border: 1px solid #ddd;
   border-radius: 8px;
   color: #2a2a2a;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .service-button:hover {
-  background-color: #e8e8e8;
+  background-color: #ddd;
+  border-color: #ccc;
 }
 
 .service-arrow {
-  font-size: 20px !important;
-  transition: transform 0.3s ease;
+  font-size: 18px !important;
+  transition: transform 0.2s ease;
 }
 
 .service-button:hover .service-arrow {
-  transform: translateY(4px);
+  transform: translateX(2px);
 }
 
 @media screen and (max-width: 968px) {
   .services-section {
-    padding: 80px 20px;
+    padding: var(--section-spacing, 80px) 0;
+  }
+
+  .services-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .services-header {
+    padding-left: 12px;
   }
 
   .services-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 24px;
   }
 
   .service-card {
-    padding: 40px 30px;
+    padding: 28px 24px 28px 12px;
   }
 }
 
 @media screen and (max-width: 640px) {
   .services-section {
-    padding: 60px 20px;
+    padding: var(--section-spacing, 80px) 0;
+  }
+
+  .services-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .services-header {
+    margin-bottom: 40px;
+    padding-left: 10px;
   }
 
   .service-card {
-    padding: 30px 20px;
+    padding: 24px 20px 24px 10px;
+    gap: 20px;
   }
 
-  .service-icon {
-    font-size: 60px;
+  .service-icon-wrap {
+    width: 48px;
+    height: 48px;
+  }
+
+  .service-title {
+    font-size: 18px;
+  }
+
+  .service-description {
+    font-size: 14px;
   }
 }

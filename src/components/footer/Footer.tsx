@@ -29,13 +29,6 @@ const Footer: React.FC = () => {
       <div className="footer-header">
         <div className="footer-header-container">
           <Link to="/" className="footer-header-logo">
-            <div className="logo-graphic">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 5L35 15L30 25L20 35L10 25L5 15L20 5Z" stroke="white" strokeWidth="2" fill="none"/>
-                <path d="M15 15L25 15L20 25L15 15Z" fill="white"/>
-                <path d="M20 10L30 20L25 30L20 30L10 20L20 10Z" stroke="white" strokeWidth="1.5" fill="none" opacity="0.7"/>
-              </svg>
-            </div>
             <div className="logo-text">
               <span className="logo-webisha">WEBISHA</span>
               <span className="logo-tech">TECH</span>

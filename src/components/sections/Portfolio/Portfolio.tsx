@@ -1,51 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import SectionTitle from '../../ui/SectionTitle/SectionTitle';
 import SectionSubtitle from '../../ui/SectionSubtitle/SectionSubtitle';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import portfolioBg from '../../../assets/images/sections/portfolio-bg.jpeg';
-import qtrHome from '../../../assets/images/clients/qtr_home.png';
-import qtrTasks from '../../../assets/images/clients/qtr_tasks.png';
-import saiapp from '../../../assets/images/clients/saiapp.png';
+import { portfolioData } from '../../../data/portfolioData';
 import './Portfolio.css';
-
-export interface PortfolioItem {
-  id: number;
-  image: string;
-  title: string;
-  category: string;
-}
-
-const portfolioItems: PortfolioItem[] = [
-  {
-    id: 1,
-    image: qtrHome,
-    title: 'E-Commerce Platform',
-    category: 'Web Development',
-  },
-  {
-    id: 2,
-    image: qtrTasks,
-    title: 'Task Management App',
-    category: 'Mobile Apps',
-  },
-  {
-    id: 3,
-    image: saiapp,
-    title: 'AI-Powered Solution',
-    category: 'Cloud Solutions',
-  },
-];
 
 const Portfolio: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % portfolioItems.length);
+    const next = (currentIndex + 1) % portfolioData.length;
+    const el = scrollRef.current?.querySelector(`[data-index="${next}"]`);
+    (el as HTMLElement)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    setCurrentIndex(next);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + portfolioItems.length) % portfolioItems.length);
+    const prev = (currentIndex - 1 + portfolioData.length) % portfolioData.length;
+    const el = scrollRef.current?.querySelector(`[data-index="${prev}"]`);
+    (el as HTMLElement)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    setCurrentIndex(prev);
   };
 
   return (
@@ -54,7 +32,7 @@ const Portfolio: React.FC = () => {
         <img src={portfolioBg} alt="Portfolio Background" className="portfolio-bg-image" />
         <div className="portfolio-overlay"></div>
       </div>
-      <div className="portfolio-container">
+      <div className="portfolio-container section-container">
         <div className="portfolio-header">
           <SectionTitle className="portfolio-title">Our Portfolio</SectionTitle>
           <SectionSubtitle className="portfolio-subtitle">Check out some of our recent projects.</SectionSubtitle>
@@ -63,18 +41,24 @@ const Portfolio: React.FC = () => {
           <button className="carousel-button carousel-button-left" onClick={prevSlide} aria-label="Previous">
             <ChevronLeftIcon />
           </button>
-          <div className="portfolio-items">
-            {portfolioItems.map((item, index) => (
+          <div className="portfolio-items" ref={scrollRef}>
+            {portfolioData.map((item, index) => (
               <div
                 key={item.id}
                 className={`portfolio-item ${index === currentIndex ? 'active' : ''}`}
+                data-index={index}
               >
                 <div className="portfolio-image-wrapper">
                   <img src={item.image} alt={item.title} className="portfolio-image" />
-                </div>
-                <div className="portfolio-info">
-                  <h3 className="portfolio-item-title">{item.title}</h3>
-                  <p className="portfolio-item-category">{item.category}</p>
+                  <div className="portfolio-info-overlay">
+                    <div className="portfolio-info-text">
+                      <h3 className="portfolio-item-title">{item.title}</h3>
+                      <p className="portfolio-item-category">{item.category}</p>
+                    </div>
+                    <span className="portfolio-item-arrow" aria-hidden>
+                      <ArrowForwardIcon />
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}

@@ -1,10 +1,10 @@
 .hero-section {
   position: relative;
-  min-height: 650px;
+  min-height: 580px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: #000000;
+  background: #0a0a0a;
 }
 
 .hero-background {
@@ -20,50 +20,48 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.4;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(139, 26, 26, 0.2) 100%);
+  opacity: 0.55;
 }
 
 .hero-container {
   position: relative;
   z-index: 1;
-  max-width: 1400px;
   width: 100%;
-  margin: 0 auto;
-  padding: 100px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  padding: var(--section-spacing, 80px) var(--content-padding-x, 48px);
+  display: flex;
   align-items: center;
 }
 
+/* Text block aligned to same left line as other sections */
 .hero-content {
   color: #ffffff;
+  max-width: 640px;
 }
 
 .hero-title {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 56px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: clamp(36px, 5vw, 52px);
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 24px 0;
   color: #ffffff;
+  letter-spacing: -0.02em;
 }
 
 .hero-description {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 20px;
-  line-height: 1.6;
-  margin: 0 0 40px 0;
-  color: #e3dcdc;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+  margin: 0 0 32px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* CTA: red button to match reference */
+.hero-content .btn-primary {
+  background-color: #b51919;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 500;
 }
 
 .hero-visual {
@@ -272,9 +270,11 @@
 
 @media screen and (max-width: 968px) {
   .hero-container {
-    grid-template-columns: 1fr;
-    gap: 50px;
-    padding: 80px 20px;
+    padding: var(--section-spacing, 80px) 24px;
+  }
+
+  .hero-content {
+    max-width: 100%;
   }
 
   .hero-title {
@@ -282,7 +282,7 @@
   }
 
   .hero-description {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .hero-visual {

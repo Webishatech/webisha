@@ -1,7 +1,9 @@
+/* Dark section with reddish-brown undertones */
 .portfolio-section {
   position: relative;
-  padding: 120px 40px;
+  padding: var(--section-spacing, 80px) var(--content-padding-x, 48px);
   overflow: hidden;
+  background: #1a1515;
 }
 
 .portfolio-background {
@@ -11,13 +13,15 @@
   width: 100%;
   height: 100%;
   z-index: 0;
+  pointer-events: none;
 }
 
 .portfolio-bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.25;
+  object-position: center center;
+  opacity: 0.55;
 }
 
 .portfolio-overlay {
@@ -26,70 +30,74 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(139, 26, 26, 0.25) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 8, 8, 0.7) 0%,
+    rgba(20, 12, 12, 0.4) 40%,
+    rgba(15, 10, 10, 0.5) 100%
+  );
 }
 
 .portfolio-container {
   position: relative;
   z-index: 1;
-  max-width: 1400px;
-  margin: 0 auto;
 }
 
+/* Left-aligned heading */
 .portfolio-header {
-  text-align: center;
-  margin-bottom: 80px;
+  text-align: left;
+  margin-bottom: 48px;
 }
 
 .portfolio-title {
-  color: #ffffff !important;
+  color: #f0f0f0 !important;
+  margin: 0;
 }
 
 .portfolio-subtitle {
-  color: #e3dcdc !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-top: 12px;
 }
 
+/* Carousel: arrows outside, white icon with no background (same as reviews section) */
 .portfolio-carousel {
-  position: relative;
   display: flex;
   align-items: center;
-  gap: 30px;
 }
 
 .carousel-button {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  width: 56px;
-  height: 56px;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #ffffff;
-  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.2s ease, opacity 0.2s ease;
   z-index: 2;
-  flex-shrink: 0;
 }
 
 .carousel-button:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: scale(1.1);
+  color: #ffffff;
+  opacity: 0.9;
 }
 
 .carousel-button svg {
-  font-size: 28px !important;
+  font-size: 34px !important;
 }
 
 .portfolio-items {
   display: flex;
-  gap: 40px;
+  gap: 28px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   flex: 1;
+  min-width: 0;
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding: 20px 0;
@@ -99,94 +107,166 @@
   display: none;
 }
 
+/* Card: image full-bleed, thin light border, bottom overlay (per reference) */
 .portfolio-item {
-  flex: 0 0 calc(33.333% - 27px);
+  flex: 0 0 calc(33.333% - 19px);
+  min-width: 280px;
   scroll-snap-align: start;
-  background: rgba(255, 255, 255, 0.98);
-  border-radius: 16px;
+  background: rgba(35, 32, 32, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-  opacity: 0.75;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  opacity: 0.9;
+}
+
+.portfolio-item:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  opacity: 1;
 }
 
 .portfolio-item.active {
   opacity: 1;
-  transform: scale(1.05);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
 }
 
+/* Image fills card; overlay sits on top at bottom */
 .portfolio-image-wrapper {
+  position: relative;
   width: 100%;
-  height: 350px;
+  height: 280px;
   overflow: hidden;
-  background: #f5f5f5;
 }
 
 .portfolio-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
 .portfolio-item:hover .portfolio-image {
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 
-.portfolio-info {
-  padding: 30px;
-  text-align: center;
+/* Bottom overlay: dark semi-transparent, ~one-third height */
+.portfolio-info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+}
+
+.portfolio-info-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .portfolio-item-title {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 22px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 20px;
   font-weight: 700;
-  color: #2a2a2a;
-  margin: 0 0 10px 0;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
 }
 
 .portfolio-item-category {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  color: #666666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
   margin: 0;
+}
+
+.portfolio-item-arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #b51919;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.portfolio-item-arrow svg {
+  font-size: 20px !important;
+}
+
+.portfolio-item:hover .portfolio-item-arrow {
+  background: #d14d56;
+  transform: translateX(4px);
 }
 
 @media screen and (max-width: 968px) {
   .portfolio-section {
-    padding: 80px 20px;
+    padding: var(--section-spacing, 80px) 24px;
+  }
+
+  .portfolio-header {
+    margin-bottom: 36px;
+  }
+
+  .portfolio-items {
+    gap: 20px;
   }
 
   .portfolio-item {
-    flex: 0 0 calc(50% - 20px);
+    flex: 0 0 calc(50% - 10px);
+    min-width: 260px;
   }
 
   .portfolio-image-wrapper {
-    height: 300px;
+    height: 240px;
   }
 }
 
 @media screen and (max-width: 640px) {
   .portfolio-section {
-    padding: 60px 20px;
+    padding: var(--section-spacing, 80px) 20px;
+  }
+
+  .portfolio-items {
+    gap: 16px;
   }
 
   .portfolio-item {
     flex: 0 0 100%;
+    min-width: 240px;
   }
 
   .carousel-button {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
   }
 
   .carousel-button svg {
-    font-size: 24px !important;
+    font-size: 30px !important;
   }
 
   .portfolio-image-wrapper {
-    height: 250px;
+    height: 220px;
+  }
+
+  .portfolio-info-overlay {
+    padding: 16px 20px;
+  }
+
+  .portfolio-item-title {
+    font-size: 18px;
+  }
+
+  .portfolio-item-category {
+    font-size: 13px;
   }
 }

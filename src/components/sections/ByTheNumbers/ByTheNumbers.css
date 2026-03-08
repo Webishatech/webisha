@@ -1,41 +1,67 @@
+/* Darker than Our Services (#f0f0f0) → #e8e8e8 */
 .by-the-numbers-section {
-  padding: 120px 40px;
-  background-color: #f8f8f8;
+  padding: var(--section-spacing, 80px) var(--content-padding-x, 48px);
+  background-color: #e8e8e8;
 }
 
 .by-the-numbers-container {
-  max-width: 1400px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
 }
 
 .by-the-numbers-header {
-  text-align: center;
-  margin-bottom: 80px;
+  flex-shrink: 0;
+  text-align: left;
 }
 
-.statistics-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 60px;
+.by-the-numbers-header .section-title {
+  color: #2a2a2a;
+}
+
+.by-the-numbers-header .section-subtitle {
+  color: #666666;
+  margin-top: 12px;
+}
+
+/* Single row: four stats with vertical separators */
+.statistics-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+  gap: 0;
+}
+
+.statistic-separator {
+  width: 1px;
+  align-self: stretch;
+  min-height: 60px;
+  background-color: #d0d0d0;
+  flex-shrink: 0;
 }
 
 .statistic-item {
+  min-width: 0;
   text-align: center;
-  padding: 20px;
+  padding: 0 25px;
 }
 
 .statistic-number {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 64px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 48px;
   font-weight: 700;
   color: #2a2a2a;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   line-height: 1;
 }
 
 .statistic-label {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
   font-weight: 400;
   color: #666666;
   line-height: 1.4;
@@ -43,34 +69,61 @@
 
 @media screen and (max-width: 968px) {
   .by-the-numbers-section {
-    padding: 80px 20px;
+    padding: var(--section-spacing, 80px) 24px;
   }
 
-  .statistics-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .by-the-numbers-container {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 40px;
   }
 
-  .statistic-number {
-    font-size: 52px;
+  .by-the-numbers-header {
+    padding-left: 12px;
   }
 
-  .statistic-label {
-    font-size: 18px;
+  .statistics-row {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 24px 0;
+  }
+
+  .statistic-separator {
+    display: none;
+  }
+
+  .statistic-item {
+    flex: 0 0 50%;
+    text-align: left;
+    padding: 0 16px 0 12px;
   }
 }
 
 @media screen and (max-width: 640px) {
   .by-the-numbers-section {
-    padding: 60px 20px;
+    padding: var(--section-spacing, 80px) 20px;
   }
 
-  .statistics-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .by-the-numbers-container {
+    padding: 0;
+    gap: 32px;
+  }
+
+  .by-the-numbers-header {
+    padding-left: 10px;
+  }
+
+  .statistic-item {
+    flex: 0 0 100%;
+    padding: 0 10px;
   }
 
   .statistic-number {
-    font-size: 48px;
+    font-size: 40px;
+  }
+
+  .statistic-label {
+    font-size: 15px;
   }
 }

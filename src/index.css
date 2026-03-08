@@ -59,6 +59,19 @@
   --transition-default: 0.3s ease;
   --transition-fast: 0.2s ease;
   --transition-slow: 0.5s ease;
+
+  /* Page layout: same left alignment and equal spacing for all sections */
+  --content-padding-x: 48px;
+  --content-inner: 16px;
+  --section-spacing: 80px;
+  --content-max-width: 1400px;
+}
+
+/* Global container: single max-width for all section content */
+.section-container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  width: 100%;
 }
 
 body {

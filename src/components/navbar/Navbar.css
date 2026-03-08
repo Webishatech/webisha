@@ -33,17 +33,6 @@
     cursor: pointer;
 }
 
-.logo-graphic {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-graphic svg {
-    width: 40px;
-    height: 40px;
-}
-
 .logo-text {
     display: flex;
     align-items: baseline;
@@ -60,7 +49,7 @@
 }
 
 .logo-tech {
-    color: #FF6B9D;
+    color: #ff0000;
     font-size: 24px;
     font-weight: 600;
 }
@@ -217,11 +206,6 @@
     .logo-webisha,
     .logo-tech {
         font-size: 20px;
-    }
-
-    .logo-graphic svg {
-        width: 32px;
-        height: 32px;
     }
 
     .navbar {

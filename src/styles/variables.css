@@ -1,0 +1,69 @@
+/**
+ * Webisha Tech — Design Tokens & CSS Variables
+ * Single source of truth for colors, spacing, layering, and motion.
+ * Import this file once (e.g. in index.css) so all components can use var(--token).
+ */
+
+:root {
+  /* ─── Colors ───────────────────────────────────────────────────────────── */
+  --color-primary-bg: #000000;
+  --color-secondary-bg: #b51919;
+  --color-tertiary-bg: #ffffff;
+
+  --color-primary-text: #ffffff;
+  --color-secondary-text: #8892b0;
+  --color-tertiary-text: #000000;
+
+  --color-accent: #4a9eff;
+  --color-accent-hover: #64b5f6;
+
+  /* Legacy aliases (keep for existing components; prefer --color-* above) */
+  --primary-bg: var(--color-primary-bg);
+  --secondary-bg: var(--color-secondary-bg);
+  --tertiary-bg: var(--color-tertiary-bg);
+  --primary-text: var(--color-primary-text);
+  --secondary-text: var(--color-secondary-text);
+  --primary-text-color: #e3dcdc;
+  --secondary-text-color: var(--color-secondary-bg);
+  --tertiary-text-color: var(--color-tertiary-text);
+  --accent-color: var(--color-accent);
+  --hover-color: var(--color-accent-hover);
+
+  /* Header & footer shared: same gradient as footer for visual consistency */
+  --header-footer-bg: linear-gradient(135deg, var(--color-primary-bg) 0%, var(--color-secondary-bg) 100%);
+  --header-bg: var(--header-footer-bg);
+  --header-bg-solid: #0a0a0a;
+  --header-border: rgba(255, 255, 255, 0.12);
+
+  /* ─── Layering (z-index) ───────────────────────────────────────────────── */
+  --z-below: -1;
+  --z-base: 0;
+  --z-content: 1;
+  --z-raised: 2;
+  --z-dropdown: 100;
+  --z-sticky: 500;
+  --z-header: 1100;
+  --z-overlay: 1200;
+  --z-modal: 1300;
+  --z-toast: 1400;
+  --z-max: 9999;
+
+  /* ─── Layout ──────────────────────────────────────────────────────────── */
+  --header-height: 80px;
+  --container-max: 1400px;
+  --container-padding: 20px;
+  --section-padding-y: 80px;
+  --section-padding-x: 5%;
+
+  /* Page content: same left edge and equal vertical spacing for all sections */
+  --content-padding-x: 48px;
+  --content-inner: 16px;
+  --section-spacing: 80px;
+
+  /* ─── Motion ───────────────────────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 0.15s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.5s;
+}
