@@ -2,11 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import Navbar from './components/Navbar';
-import Home from './pages/home/Home';
-import SignIn from './pages/signIn/SignIn';
-import About from './pages/about/About';
-import Footer from './pages/footer/Footer';
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+import { routes } from './config/routes';
 
 const App: React.FC = () => {
   return (
@@ -15,9 +13,13 @@ const App: React.FC = () => {
         <div className="App">
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/about" element={<About />} />
+            {routes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<route.element />}
+              />
+            ))}
           </Routes>
           <Footer />
         </div>

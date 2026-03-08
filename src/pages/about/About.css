@@ -6,11 +6,11 @@
 
 .about-header {
     text-align: center;
-    margin-bottom: 4rem;
-    padding: 4rem 0;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-    color: white;
-    border-radius: 8px;
+    margin-bottom: var(--spacing-xxl);
+    padding: var(--spacing-xxl) 0;
+    background: var(--gradient-dark);
+    color: var(--white);
+    border-radius: var(--radius-md);
 }
 
 .about-header h1 {
@@ -28,8 +28,8 @@
 }
 
 .about-section h2 {
-    color: #e3dcdc;
-    margin-bottom: 1.5rem;
+    color: var(--primary-text-color);
+    margin-bottom: var(--spacing-md);
     font-size: 2rem;
 }
 
@@ -41,15 +41,15 @@
 }
 
 .approach-item {
-    padding: 2rem;
+    padding: var(--spacing-lg);
     background: var(--secondary-bg);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     text-align: center;
 }
 
 .approach-item h3 {
-    color: #e3dcdc;
-    margin-bottom: 1rem;
+    color: var(--primary-text-color);
+    margin-bottom: var(--spacing-sm);
 }
 
 .values-list {
@@ -61,9 +61,9 @@
 }
 
 .values-list li {
-    background: #f5f5f5;
-    padding: 1rem;
-    border-radius: 4px;
+    background: var(--gray-light);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-sm);
     text-align: center;
     color: var(--tertiary-text-color);
 }
