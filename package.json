@@ -19,6 +19,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.5",
     "react-scripts": "5.0.1",
+    "swiper": "^12.1.2",
     "typescript": "^4.9.5"
   },
   "scripts": {
