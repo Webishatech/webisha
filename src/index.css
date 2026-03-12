@@ -1,71 +1,8 @@
 /**
- * Global CSS Variables
- * All colors are defined here - change colors in this file to update the entire application
- * This file is synchronized with src/config/theme.ts
+ * Global styles. All design tokens live in styles/variables.css — do not define variables here.
  */
 
-:root {
-  /* Background Colors */
-  --primary-bg: #000000;
-  --secondary-bg: #b51919;
-  --tertiary-bg: #ffffff;
-  
-  /* Text Colors */
-  --primary-text: #ffffff;
-  --secondary-text: #8892b0;
-  --tertiary-text: #000000;
-  --primary-text-color: #e3dcdc;
-  --secondary-text-color: #b51919;
-  --tertiary-text-color: #000000;
-  
-  /* Accent Colors */
-  --accent-color: #4a9eff;
-  --hover-color: #64b5f6;
-  
-  /* Additional Colors */
-  --code-color: #4a9eff;
-  --border-color: rgba(255, 255, 255, 0.2);
-  --border-light: rgba(255, 255, 255, 0.1);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --shadow-light: rgba(0, 0, 0, 0.1);
-  
-  /* Specific UI Colors */
-  --white: #ffffff;
-  --black: #000000;
-  --gray-light: #f5f5f5;
-  --gray-dark: #1a1a1a;
-  --gray-darker: #2a2a2a;
-  --hover-secondary: #d14d56;
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-  --gradient-dark: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-darker) 100%);
-  
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  --spacing-xxl: 4rem;
-  
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-full: 50%;
-  
-  /* Transitions */
-  --transition-default: 0.3s ease;
-  --transition-fast: 0.2s ease;
-  --transition-slow: 0.5s ease;
-
-  /* Page layout: same left alignment and equal spacing for all sections */
-  --content-padding-x: 48px;
-  --content-inner: 16px;
-  --section-spacing: 80px;
-  --content-max-width: 1400px;
-}
+@import './styles/variables.css';
 
 /* Global container: single max-width for all section content */
 .section-container {

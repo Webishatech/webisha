@@ -34,7 +34,7 @@
 
 /* Text block aligned to same left line as other sections */
 .hero-content {
-  color: #ffffff;
+  color: var(--primary-text);
   max-width: 640px;
 }
 
@@ -44,7 +44,7 @@
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 24px 0;
-  color: #ffffff;
+  color: var(--primary-text);
   letter-spacing: -0.02em;
 }
 
@@ -56,11 +56,11 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* CTA: red button to match reference */
+/* CTA: primary action button */
 .hero-content .btn-primary {
-  background-color: #b51919;
-  color: #ffffff;
-  border-radius: 6px;
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
+  border-radius: var(--radius-md);
   font-weight: 500;
 }
 

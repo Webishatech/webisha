@@ -13,31 +13,31 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 1,
     image: prestiage,
-    title: 'Tool Management',
+    title: 'Tool Management System',
     category: 'Web Development',
   },
   {
     id: 2,
     image: qtr,
-    title: 'Healthcare App',
+    title: 'Healthcare Mobile Application',
     category: 'Mobile Application',
   },
   {
     id: 3,
     image: sai,
-    title: 'Event Management',
+    title: 'Event Management Platform',
     category: 'Web Development',
   },
   {
     id: 4,
     image: prestiage,
-    title: 'Enterprise Portal',
+    title: 'Tool Management System',
     category: 'Web Development',
   },
   {
     id: 5,
     image: qtr,
-    title: 'Productivity Suite',
+    title: 'Healthcare Mobile Application',
     category: 'Mobile Application',
   },
 ];

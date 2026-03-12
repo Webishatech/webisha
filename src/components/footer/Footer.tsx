@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import footerBg from '../../assets/images/sections/footer-bg.jpeg';
 import facebookIcon from '../../assets/icons/facebook.svg';
@@ -9,15 +9,6 @@ import mapPinIcon from '../../assets/icons/map-pin.svg';
 import './Footer.css';
 
 const Footer: React.FC = () => {
-  const [email, setEmail] = useState('');
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle subscription logic here
-    console.log('Subscribed:', email);
-    setEmail('');
-  };
-
   return (
     <footer className="footer">
       <div className="footer-background">
@@ -36,10 +27,10 @@ const Footer: React.FC = () => {
           </Link>
           <nav className="footer-header-nav">
             <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
             <Link to="/services">Services</Link>
             <Link to="/portfolio">Portfolio</Link>
-            <Link to="/about">About Us</Link>
-            <Link to="/contact">Contact Us</Link>
+            <Link to="/contact">Contact</Link>
           </nav>
         </div>
       </div>
@@ -47,9 +38,9 @@ const Footer: React.FC = () => {
       {/* Main Footer Content */}
       <div className="footer-container">
         <div className="footer-content">
-          {/* Left Column - Slogan & Social Media */}
+          {/* Left Column - About & Social Media */}
           <div className="footer-column footer-column-left">
-            <p className="footer-tagline">Cutting Edge IT Solutions for your success.</p>
+            <p className="footer-tagline">Webisha Tech delivers cutting-edge IT solutions that empower businesses to innovate, grow, and succeed in the digital era.</p>
             <div className="footer-social">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <img src={facebookIcon} alt="Facebook" />
@@ -80,41 +71,20 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column - Addresses & Subscribe */}
+          {/* Right Column - Address */}
           <div className="footer-column footer-column-right">
             <div className="contact-item">
-              <img src={phoneIcon} alt="Phone" className="contact-icon" />
-              <span>+123 456 7890 123 Torn Bewes, CA.</span>
-            </div>
-            <div className="contact-item">
               <img src={mapPinIcon} alt="Location" className="contact-icon" />
-              <span>130 Taas Press, San Francisco CA.</span>
+              <span>123 Tech Street, San Francisco, CA</span>
             </div>
-         
           </div>
         </div>
 
-        {/* Copyright Section */}
+        {/* Copyright Section - centered at footer end */}
         <div className="footer-bottom">
-          <p className="footer-copyright">© 2021. Webisha Tech. All rights reserved.</p>
-          <div className="footer-subscribe">
-              <p className="subscribe-label">Subscribe to our newsletter</p>
-              <div className="subscribe-buttons">
-                <button type="button" className="subscribe-btn subscribe-btn-secondary">Please</button>
-                <button 
-                  type="button" 
-                  className="subscribe-btn subscribe-btn-primary" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSubscribe(e as any);
-                  }}
-                >
-                  Subscribe
-                </button>
-              </div>
-            </div>
+          <p className="footer-copyright">© {new Date().getFullYear()}. Webisha Tech. All rights reserved.</p>
         </div>
-      </div>
+      </div> 
     </footer>
   );
 };

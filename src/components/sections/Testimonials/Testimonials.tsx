@@ -35,7 +35,7 @@ const Testimonials: React.FC = () => {
       <div className="testimonials-container section-container">
         <div className="testimonials-header">
           <SectionTitle>What Our Clients Say</SectionTitle>
-          <SectionSubtitle>Check out some of our recent projects.</SectionSubtitle>
+          <SectionSubtitle>Our clients trust us to deliver reliable technology solutions that drive business success.</SectionSubtitle>
         </div>
         <div className="testimonials-carousel">
           <button
@@ -95,7 +95,6 @@ const Testimonials: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="testimonials-wave" aria-hidden />
     </section>
   );
 };

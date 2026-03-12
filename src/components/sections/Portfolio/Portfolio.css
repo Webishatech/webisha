@@ -50,7 +50,7 @@
 }
 
 .portfolio-title {
-  color: #f0f0f0 !important;
+  color: var(--gray-light) !important;
   margin: 0;
 }
 

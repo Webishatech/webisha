@@ -35,7 +35,7 @@ const Portfolio: React.FC = () => {
       <div className="portfolio-container section-container">
         <div className="portfolio-header">
           <SectionTitle className="portfolio-title">Our Portfolio</SectionTitle>
-          <SectionSubtitle className="portfolio-subtitle">Check out some of our recent projects.</SectionSubtitle>
+          <SectionSubtitle className="portfolio-subtitle">Explore some of the innovative digital solutions we have built for businesses across various industries.</SectionSubtitle>
         </div>
         <div className="portfolio-carousel">
           <button className="carousel-button carousel-button-left" onClick={prevSlide} aria-label="Previous">

@@ -8,16 +8,19 @@ export const servicesData: Service[] = [
   {
     icon: 'web',
     title: 'Web Development',
-    description: 'Creating responsive websites and web applications.',
+    description:
+      'We build responsive, high-performance websites and web applications tailored to your business needs.',
   },
   {
     icon: 'mobile',
-    title: 'Mobile Apps',
-    description: 'Built for iOS and Android with native and cross-platform services.',
+    title: 'Mobile Applications',
+    description:
+      'We develop high-performance mobile apps for iOS and Android with seamless user experiences.',
   },
   {
     icon: 'cloud',
     title: 'Cloud Solutions',
-    description: 'Scaling with modern and agile infrastructures.',
+    description:
+      'We deliver secure cloud solutions that help businesses scale faster and operate more efficiently.',
   },
 ];

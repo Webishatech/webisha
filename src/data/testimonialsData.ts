@@ -15,10 +15,10 @@ export const testimonialsData: Testimonial[] = [
     id: 1,
     name: 'Sarah Miller',
     title: 'CEO',
-    company: 'Sextisers',
+    company: 'Softline',
     rating: 5,
     quote:
-      'WebIsha Tech delivered an exceptional solution that transformed our business operations. Their team is professional, innovative, and truly understands our needs.',
+      'Webisha Tech delivered an exceptional solution that transformed our business operations. Their team is highly professional, innovative, and truly understands client requirements.',
     image: reviewImage,
   },
   {
@@ -28,7 +28,7 @@ export const testimonialsData: Testimonial[] = [
     company: 'TechCorp',
     rating: 5,
     quote:
-      'Working with WebIsha Tech has been a game-changer. Their expertise in cloud solutions helped us scale efficiently and reduce costs significantly.',
+      'Working with Webisha Tech has been a great experience. Their expertise in scalable technology helped us optimize performance and significantly reduce operational costs.',
     image: reviewImage,
   },
   {
@@ -38,27 +38,27 @@ export const testimonialsData: Testimonial[] = [
     company: 'InnovateLabs',
     rating: 5,
     quote:
-      'The mobile app they developed exceeded our expectations. The user experience is flawless, and the performance is outstanding.',
+      'The mobile application they developed exceeded our expectations. The user experience is seamless and the performance is outstanding.',
     image: reviewImage,
   },
   {
     id: 4,
-    name: 'David Kim',
-    title: 'COO',
-    company: 'BizHIsave',
+    name: 'Sarah Miller',
+    title: 'CEO',
+    company: 'Softline',
     rating: 5,
     quote:
-      'Outstanding partnership from start to finish. Webisha Tech understood our vision and delivered a solution that has driven real growth.',
+      'Webisha Tech delivered an exceptional solution that transformed our business operations. Their team is highly professional, innovative, and truly understands client requirements.',
     image: reviewImage,
   },
   {
     id: 5,
-    name: 'Emily Johnson',
-    title: 'Director of Operations',
-    company: 'ScaleUp Inc',
+    name: 'John Anderson',
+    title: 'CTO',
+    company: 'TechCorp',
     rating: 5,
     quote:
-      'Professional, responsive, and technically excellent. Our new platform has streamlined operations and improved customer satisfaction.',
+      'Working with Webisha Tech has been a great experience. Their expertise in scalable technology helped us optimize performance and significantly reduce operational costs.',
     image: reviewImage,
   },
 ];

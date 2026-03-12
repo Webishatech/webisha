@@ -1,11 +1,11 @@
 /**
  * Webisha Tech — Design Tokens & CSS Variables
- * Single source of truth for colors, spacing, layering, and motion.
- * Import this file once (e.g. in index.css) so all components can use var(--token).
+ * Single source of truth. Import this file once (e.g. in index.css).
+ * Do not define variables in other files.
  */
 
 :root {
-  /* ─── Colors ───────────────────────────────────────────────────────────── */
+  /* ─── Base palette ─────────────────────────────────────────────────────── */
   --color-primary-bg: #000000;
   --color-secondary-bg: #b51919;
   --color-tertiary-bg: #ffffff;
@@ -17,7 +17,7 @@
   --color-accent: #4a9eff;
   --color-accent-hover: #64b5f6;
 
-  /* Legacy aliases (keep for existing components; prefer --color-* above) */
+  /* Aliases used across components */
   --primary-bg: var(--color-primary-bg);
   --secondary-bg: var(--color-secondary-bg);
   --tertiary-bg: var(--color-tertiary-bg);
@@ -29,11 +29,35 @@
   --accent-color: var(--color-accent);
   --hover-color: var(--color-accent-hover);
 
-  /* Header & footer shared: same gradient as footer for visual consistency */
+  /* UI colors */
+  --code-color: var(--color-accent);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --white: #ffffff;
+  --black: #000000;
+  --gray-light: #f5f5f5;
+  --gray-dark: #1a1a1a;
+  --gray-darker: #2a2a2a;
+  --hover-secondary: #d14d56;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+  --gradient-dark: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-darker) 100%);
+
+  /* Header & footer nav bar (shared) */
   --header-footer-bg: linear-gradient(135deg, var(--color-primary-bg) 0%, var(--color-secondary-bg) 100%);
   --header-bg: var(--header-footer-bg);
   --header-bg-solid: #0a0a0a;
   --header-border: rgba(255, 255, 255, 0.12);
+
+  --header-nav-bg: #8B1A1A;
+  --header-nav-bg-pattern: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0),
+    radial-gradient(circle at 8px 8px, rgba(0, 0, 0, 0.1) 1px, transparent 0);
+  --header-nav-bg-size: 20px 20px, 40px 40px;
+  --header-nav-border: var(--gray-dark);
+  --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
   /* ─── Layering (z-index) ───────────────────────────────────────────────── */
   --z-below: -1;
@@ -42,7 +66,7 @@
   --z-raised: 2;
   --z-dropdown: 100;
   --z-sticky: 500;
-  --z-header: 1100;
+  --z-header: 999;
   --z-overlay: 1200;
   --z-modal: 1300;
   --z-toast: 1400;
@@ -51,6 +75,7 @@
   /* ─── Layout ──────────────────────────────────────────────────────────── */
   --header-height: 80px;
   --container-max: 1400px;
+  --content-max-width: var(--container-max);
   --container-padding: 20px;
   --section-padding-y: 80px;
   --section-padding-x: 5%;
@@ -60,10 +85,27 @@
   --content-inner: 16px;
   --section-spacing: 80px;
 
+  /* Spacing scale */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-xxl: 4rem;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 50%;
+
   /* ─── Motion ───────────────────────────────────────────────────────────── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast: 0.15s;
   --duration-normal: 0.3s;
   --duration-slow: 0.5s;
+  --transition-default: 0.3s ease;
+  --transition-fast: 0.2s ease;
+  --transition-slow: 0.5s ease;
 }

@@ -19,7 +19,7 @@
 }
 
 .services-header .section-title {
-  color: #2a2a2a;
+  color: var(--gray-darker);
 }
 
 .services-header .section-subtitle {
@@ -35,12 +35,12 @@
 
 /* Card: thin border, same left padding as header so content aligns with section title */
 .service-card {
-  background: #ffffff;
-  border-radius: 12px;
+  background: var(--tertiary-bg);
+  border-radius: var(--radius-lg);
   border: 1px solid #e8e8e8;
   padding: 32px 28px 32px var(--content-inner, 16px);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.25s ease;
+  transition: box-shadow var(--transition-default);
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -59,7 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2a2a2a;
+  color: var(--gray-darker);
 }
 
 .service-body {
@@ -71,7 +71,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   font-size: 20px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: var(--gray-darker);
   margin: 0 0 12px 0;
   line-height: 1.3;
 }
@@ -92,8 +92,8 @@
   padding: 12px 20px;
   background-color: #e8e8e8;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  color: #2a2a2a;
+  border-radius: var(--radius-md);
+  color: var(--gray-darker);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   font-size: 14px;
   font-weight: 500;

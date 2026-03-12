@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
         <div className="hero-content">
           <h1 className="hero-title">Innovative IT Solutions for Modern Businesses</h1>
           <p className="hero-description">
-            We deliver cutting edge web, mobile, and AI solutions to help your business thrive in the digital age.
+            We help businesses transform digitally with reliable, scalable, and secure technology solutions. Our team specializes in web development, mobile applications, and cloud-based systems designed to streamline operations and accelerate growth.
           </p>
           <Button variant="primary" size="large" onClick={() => window.location.href = '/contact'}>
             Get in Touch

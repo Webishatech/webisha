@@ -1,7 +1,7 @@
 import React from 'react';
 import SectionTitle from '../../ui/SectionTitle/SectionTitle';
 import SectionSubtitle from '../../ui/SectionSubtitle/SectionSubtitle';
-import { statisticsData, type Statistic } from '../../../data/statisticsData';
+import { statisticsData } from '../../../data/statisticsData';
 import './ByTheNumbers.css';
 
 const ByTheNumbers: React.FC = () => {
@@ -10,7 +10,7 @@ const ByTheNumbers: React.FC = () => {
       <div className="by-the-numbers-container section-container">
         <div className="by-the-numbers-header">
           <SectionTitle>By the Numbers</SectionTitle>
-          <SectionSubtitle>Check out some of our recent projects.</SectionSubtitle>
+          <SectionSubtitle>Delivering reliable results for clients worldwide.</SectionSubtitle>
         </div>
         <div className="statistics-row">
           {statisticsData.map((stat, index) => (
