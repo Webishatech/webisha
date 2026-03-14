@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import SectionTitle from '../../ui/SectionTitle/SectionTitle';
 import SectionSubtitle from '../../ui/SectionSubtitle/SectionSubtitle';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ComputerIcon from '@mui/icons-material/Computer';
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
-import CloudIcon from '@mui/icons-material/Cloud';
-import { servicesData, type Service } from '../../../data/servicesData';
+import { ServiceCard } from '../../ui';
+import { servicesData } from '../../../data/servicesData';
+import { revealSection, ScrollTrigger } from '../../../utils/gsapAnimations';
 import './Services.css';
 
-const ServiceIcon: React.FC<{ type: Service['icon'] }> = ({ type }) => {
-  const baseSx = { fontSize: 40 };
-  if (type === 'web') return <ComputerIcon sx={baseSx} />;
-  if (type === 'mobile') return <PhoneAndroidIcon sx={{ ...baseSx, color: 'var(--secondary-bg)' }} />;
-  return <CloudIcon sx={baseSx} />;
-};
-
 const Services: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    revealSection(sectionRef.current, '.services-header *', { stagger: 0.08 });
+    revealSection(sectionRef.current, '.service-card', { stagger: 0.1, start: 'top 78%' });
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+  }, []);
+
   return (
-    <section className="services-section">
+    <section className="services-section" ref={sectionRef}>
       <div className="services-container section-container">
         <div className="services-header">
           <SectionTitle>Our Services</SectionTitle>
@@ -25,19 +25,12 @@ const Services: React.FC = () => {
         </div>
         <div className="services-grid">
           {servicesData.map((service, index) => (
-            <div key={index} className="service-card">
-              <div className="service-icon-wrap">
-                <ServiceIcon type={service.icon} />
-              </div>
-              <div className="service-body">
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
-                <button type="button" className="service-button">
-                  View Case Study
-                  <ArrowForwardIcon className="service-arrow" />
-                </button>
-              </div>
-            </div>
+            <ServiceCard
+              key={index}
+              service={service}
+              linkHref="/contact"
+              linkText="Learn More"
+            />
           ))}
         </div>
       </div>

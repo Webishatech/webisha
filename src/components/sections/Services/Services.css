@@ -33,88 +33,6 @@
   gap: 28px;
 }
 
-/* Card: thin border, same left padding as header so content aligns with section title */
-.service-card {
-  background: var(--tertiary-bg);
-  border-radius: var(--radius-lg);
-  border: 1px solid #e8e8e8;
-  padding: 32px 28px 32px var(--content-inner, 16px);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: box-shadow var(--transition-default);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 24px;
-  text-align: left;
-}
-
-.service-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.service-icon-wrap {
-  flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gray-darker);
-}
-
-.service-body {
-  flex: 1;
-  min-width: 0;
-}
-
-.service-title {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--gray-darker);
-  margin: 0 0 12px 0;
-  line-height: 1.3;
-}
-
-.service-description {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  line-height: 1.55;
-  color: #666666;
-  margin: 0 0 20px 0;
-}
-
-/* Light grey button, dark text, right arrow (per reference image) */
-.service-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background-color: #e8e8e8;
-  border: 1px solid #ddd;
-  border-radius: var(--radius-md);
-  color: var(--gray-darker);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.service-button:hover {
-  background-color: #ddd;
-  border-color: #ccc;
-}
-
-.service-arrow {
-  font-size: 18px !important;
-  transition: transform 0.2s ease;
-}
-
-.service-button:hover .service-arrow {
-  transform: translateX(2px);
-}
-
 @media screen and (max-width: 968px) {
   .services-section {
     padding: var(--section-spacing, 80px) 0;
@@ -134,9 +52,6 @@
     gap: 24px;
   }
 
-  .service-card {
-    padding: 28px 24px 28px 12px;
-  }
 }
 
 @media screen and (max-width: 640px) {
@@ -154,21 +69,4 @@
     padding-left: 10px;
   }
 
-  .service-card {
-    padding: 24px 20px 24px 10px;
-    gap: 20px;
-  }
-
-  .service-icon-wrap {
-    width: 48px;
-    height: 48px;
-  }
-
-  .service-title {
-    font-size: 18px;
-  }
-
-  .service-description {
-    font-size: 14px;
-  }
 }

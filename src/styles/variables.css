@@ -81,9 +81,9 @@
   --section-padding-x: 5%;
 
   /* Page content: same left edge and equal vertical spacing for all sections */
-  --content-padding-x: 48px;
+  --content-padding-x: 30px;
   --content-inner: 16px;
-  --section-spacing: 80px;
+  --section-spacing: 50px;
 
   /* Spacing scale */
   --spacing-xs: 0.5rem;

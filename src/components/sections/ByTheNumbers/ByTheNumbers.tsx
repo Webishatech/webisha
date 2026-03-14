@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import SectionTitle from '../../ui/SectionTitle/SectionTitle';
 import SectionSubtitle from '../../ui/SectionSubtitle/SectionSubtitle';
 import { statisticsData } from '../../../data/statisticsData';
+import { revealSection, ScrollTrigger } from '../../../utils/gsapAnimations';
 import './ByTheNumbers.css';
 
 const ByTheNumbers: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    revealSection(sectionRef.current, '.by-the-numbers-header *', { stagger: 0.08 });
+    revealSection(sectionRef.current, '.statistic-item', { stagger: 0.12 });
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+  }, []);
+
   return (
-    <section className="by-the-numbers-section">
+    <section className="by-the-numbers-section" ref={sectionRef}>
       <div className="by-the-numbers-container section-container">
         <div className="by-the-numbers-header">
           <SectionTitle>By the Numbers</SectionTitle>

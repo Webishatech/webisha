@@ -1,33 +1,43 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import SectionTitle from '../../ui/SectionTitle/SectionTitle';
 import SectionSubtitle from '../../ui/SectionSubtitle/SectionSubtitle';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import portfolioBg from '../../../assets/images/sections/portfolio-bg.jpeg';
-import { portfolioData } from '../../../data/portfolioData';
+import { featuredProjectsData } from '../../../data/portfolioPageData';
+import { revealSection, ScrollTrigger } from '../../../utils/gsapAnimations';
 import './Portfolio.css';
 
 const Portfolio: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    revealSection(sectionRef.current, '.portfolio-header *', { stagger: 0.08 });
+    revealSection(sectionRef.current, '.portfolio-item', { stagger: 0.15, start: 'top 75%' });
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+  }, []);
 
   const nextSlide = () => {
-    const next = (currentIndex + 1) % portfolioData.length;
+    const next = (currentIndex + 1) % featuredProjectsData.length;
     const el = scrollRef.current?.querySelector(`[data-index="${next}"]`);
     (el as HTMLElement)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     setCurrentIndex(next);
   };
 
   const prevSlide = () => {
-    const prev = (currentIndex - 1 + portfolioData.length) % portfolioData.length;
+    const prev = (currentIndex - 1 + featuredProjectsData.length) % featuredProjectsData.length;
     const el = scrollRef.current?.querySelector(`[data-index="${prev}"]`);
     (el as HTMLElement)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     setCurrentIndex(prev);
   };
 
   return (
-    <section className="portfolio-section">
+    <section className="portfolio-section" ref={sectionRef}>
       <div className="portfolio-background">
         <img src={portfolioBg} alt="Portfolio Background" className="portfolio-bg-image" />
         <div className="portfolio-overlay"></div>
@@ -42,9 +52,10 @@ const Portfolio: React.FC = () => {
             <ChevronLeftIcon />
           </button>
           <div className="portfolio-items" ref={scrollRef}>
-            {portfolioData.map((item, index) => (
-              <div
+            {featuredProjectsData.map((item, index) => (
+              <Link
                 key={item.id}
+                to={`/portfolio/case-study/${item.id}`}
                 className={`portfolio-item ${index === currentIndex ? 'active' : ''}`}
                 data-index={index}
               >
@@ -53,14 +64,14 @@ const Portfolio: React.FC = () => {
                   <div className="portfolio-info-overlay">
                     <div className="portfolio-info-text">
                       <h3 className="portfolio-item-title">{item.title}</h3>
-                      <p className="portfolio-item-category">{item.category}</p>
+                      <p className="portfolio-item-category">{item.sector}</p>
                     </div>
                     <span className="portfolio-item-arrow" aria-hidden>
                       <ArrowForwardIcon />
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           <button className="carousel-button carousel-button-right" onClick={nextSlide} aria-label="Next">

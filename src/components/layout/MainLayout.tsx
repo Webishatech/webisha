@@ -1,5 +1,6 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import { ScrollTrigger } from '../../utils/gsapAnimations';
 import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';
 
@@ -9,6 +10,13 @@ import Footer from '../footer/Footer';
  * Add routes as children of the layout route in App.
  */
 const MainLayout: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const t = setTimeout(() => ScrollTrigger.refresh(), 150);
+    return () => clearTimeout(t);
+  }, [location.pathname]);
+
   return (
     <>
       <Navbar />
