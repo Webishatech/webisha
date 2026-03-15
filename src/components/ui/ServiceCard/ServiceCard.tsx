@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ComputerIcon from '@mui/icons-material/Computer';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
-import CloudIcon from '@mui/icons-material/Cloud';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 import { type Service } from '../../../data/servicesData';
 import './ServiceCard.css';
 
@@ -11,7 +11,7 @@ const ServiceIcon: React.FC<{ type: Service['icon'] }> = ({ type }) => {
   const iconClass = 'service-card-icon';
   if (type === 'web') return <ComputerIcon className={iconClass} />;
   if (type === 'mobile') return <PhoneAndroidIcon className={iconClass} />;
-  return <CloudIcon className={iconClass} />;
+  return <SmartToyIcon className={iconClass} />;
 };
 
 export interface ServiceCardProps {

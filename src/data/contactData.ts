@@ -3,10 +3,10 @@
  */
 
 export const contactInfo = {
-  address: '1234 Tech Park, Seattle, WA 98101',
+  address: 'Sector 75, Noida, Uttar Pradesh, India',
   email: 'info@webishatech.com',
-  phone: '(206) 555-1234',
-  hours: 'Monday - Friday: 9:00 AM - 6:00 PM',
+  phone: '+91 9845751461',
+  hours: 'Monday - Saturday: 9:00 AM - 10:00 PM',
 };
 
 export const contactTeamMembers = [

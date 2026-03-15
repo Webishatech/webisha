@@ -5,7 +5,7 @@ import { statisticsData } from '../../data/statisticsData';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import LaptopIcon from '@mui/icons-material/Laptop';
-import CloudIcon from '@mui/icons-material/Cloud';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import GroupsIcon from '@mui/icons-material/Groups';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
@@ -31,9 +31,9 @@ const missionCards = [
     description: 'We build high-performance web and mobile applications with a focus on usability, security, and long-term scalability.',
   },
   {
-    icon: CloudIcon,
-    title: 'Cloud Solutions',
-    description: 'We help businesses migrate and scale their infrastructure with reliable cloud technologies.',
+    icon: SmartToyIcon,
+    title: 'AI-Powered Solutions',
+    description: 'We design and build AI-powered systems that automate operations, enhance decision-making, and enable smarter digital products.',
   },
 ];
 
@@ -138,13 +138,16 @@ const About: React.FC = () => {
               <h2 className="about-section-heading">Our Story</h2>
               <h3 className="about-section-subheading">Building Technology That Drives Business Success</h3>
               <p className="about-section-text">
-              Webisha Tech was founded with a mission to help organizations leverage modern technology to solve real-world challenges. Over the years, we have partnered with startups, enterprises, and growing businesses to design and build digital products that improve efficiency and create competitive advantage.
+                Webisha Tech was founded with a mission to help organizations leverage modern technology to solve real-world challenges. We partner with startups, enterprises, and growing businesses to design and build digital products that improve efficiency and create competitive advantage.
               </p>
               <p className="about-section-text">
-                Our approach focuses on understanding business needs first and then delivering technology solutions tailored to those goals. By combining strategic thinking with technical expertise, we help organizations transform their ideas into powerful digital solutions.             
+                Our approach focuses on understanding business needs first and then delivering technology solutions tailored to those goals. By combining strategic thinking with technical expertise, we help transform ideas into scalable digital solutions.
               </p>
               <p className="about-section-text">
-                We believe that technology should not only support business operations but also drive innovation and growth. Our team continuously explores new tools, frameworks, and technologies to deliver solutions that are scalable, secure, and future-ready.
+                We also actively integrate AI-driven technologies and intelligent automation to help businesses build smarter products, streamline operations, and unlock new opportunities.
+              </p>
+              <p className="about-section-text">
+                As a startup-focused consulting partner, we work closely with teams to rapidly prototype ideas, validate products, and bring innovative solutions to market faster.
               </p>
             </div>
             <div className="about-story-image-wrap">

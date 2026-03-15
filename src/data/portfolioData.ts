@@ -19,7 +19,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 2,
     image: qtr,
-    title: 'Healthcare Mobile Application',
+    title: 'Planner Mobile Application',
     category: 'Mobile Application',
   },
   {
@@ -37,7 +37,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 5,
     image: qtr,
-    title: 'Healthcare Mobile Application',
+    title: 'Planner Mobile Application',
     category: 'Mobile Application',
   },
 ];

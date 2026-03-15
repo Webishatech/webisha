@@ -8,6 +8,7 @@ import mailIcon from '../../assets/icons/mail.svg';
 import phoneIcon from '../../assets/icons/phone.svg';
 import mapPinIcon from '../../assets/icons/map-pin.svg';
 import './Footer.css';
+import { contactInfo } from '../../data/contactData';
 
 const Footer: React.FC = () => {
   const footerRef = useRef<HTMLElement>(null);
@@ -64,7 +65,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="contact-item">
               <img src={phoneIcon} alt="Phone" className="contact-icon" />
-              <a href="tel:+1234567890">+123 456 7890</a>
+              <a href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}>{contactInfo.phone}</a>
             </div>
           </div>
 
@@ -72,7 +73,7 @@ const Footer: React.FC = () => {
           <div className="footer-column footer-column-right">
             <div className="contact-item">
               <img src={mapPinIcon} alt="Location" className="contact-icon" />
-              <span>123 Tech Street, San Francisco, CA</span>
+              <span>{contactInfo.address}</span>
             </div>
             <div className="footer-social">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">

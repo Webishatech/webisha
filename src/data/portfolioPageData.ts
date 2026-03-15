@@ -35,8 +35,8 @@ export const featuredProjectsData: FeaturedProject[] = [
   {
     id: 3,
     image: qtr,
-    title: 'Healthcare Mobile Application',
-    description: 'A secure, HIPAA compliant mobile app for patient care and management.',
+    title: 'Planner Mobile Application',
+    description: 'A powerful mobile app designed to help users plan, track, and organize their tasks, goals, and notes in one place, making it easier to stay focused, manage priorities, and improve daily productivity.',
     sector: 'Healthcare',
   },
 ];

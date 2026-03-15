@@ -1,5 +1,5 @@
 export interface Service {
-  icon: 'web' | 'mobile' | 'cloud';
+  icon: 'web' | 'mobile' | 'ai';
   title: string;
   description: string;
 }
@@ -18,9 +18,9 @@ export const servicesData: Service[] = [
       'We develop high-performance mobile apps for iOS and Android with seamless user experiences.',
   },
   {
-    icon: 'cloud',
-    title: 'Cloud Solutions',
+    icon: 'ai',
+    title: 'AI-Powered Solutions',
     description:
-      'We deliver secure cloud solutions that help businesses scale faster and operate more efficiently.',
+      'We design and build AI-powered systems that automate operations, enhance decision-making, and enable smarter digital products.',
   },
 ];
