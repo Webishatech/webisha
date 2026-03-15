@@ -2,24 +2,26 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import Navbar from './components/Navbar';
-import Home from './pages/home/Home';
-import SignIn from './pages/signIn/SignIn';
-import About from './pages/about/About';
-import Footer from './pages/footer/Footer';
+import { MainLayout } from './components/layout';
+import { routes } from './config/routes';
+import './App.css';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
       <Router>
         <div className="App">
-          <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/about" element={<About />} />
+            <Route element={<MainLayout />}>
+              {routes.map((route) => (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={<route.element />}
+                />
+              ))}
+            </Route>
           </Routes>
-          <Footer />
         </div>
       </Router>
     </Provider>

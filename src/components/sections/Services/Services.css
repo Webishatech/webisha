@@ -1,0 +1,72 @@
+/* One left offset for the whole section so all text sits on the same vertical line */
+.services-section {
+  padding: var(--section-spacing, 80px) 0;
+  background-color: #f0f0f0;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 85% 20%, rgba(200, 200, 200, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 10% 80%, rgba(180, 180, 180, 0.08) 0%, transparent 50%);
+}
+
+.services-container {
+  padding-left: var(--content-padding-x, 48px);
+  padding-right: var(--content-padding-x, 48px);
+}
+
+/* Same left indent as card content so title and card text align on one line */
+.services-header {
+  text-align: left;
+  margin-bottom: 56px;
+}
+
+.services-header .section-title {
+  color: var(--gray-darker);
+}
+
+.services-header .section-subtitle {
+  color: #666666;
+  margin-top: 12px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media screen and (max-width: 968px) {
+  .services-section {
+    padding: var(--section-spacing, 80px) 0;
+  }
+
+  .services-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .services-header {
+    padding-left: 12px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+}
+
+@media screen and (max-width: 640px) {
+  .services-section {
+    padding: var(--section-spacing, 80px) 0;
+  }
+
+  .services-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .services-header {
+    margin-bottom: 40px;
+    padding-left: 10px;
+  }
+
+}

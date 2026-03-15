@@ -1,0 +1,358 @@
+/**
+ * Portfolio page — hero, filters, featured projects, why partner, testimonials
+ * Uses design tokens from variables.css. BEM-like naming: portfolio-*
+ */
+
+.portfolio-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────────────────── */
+.portfolio-hero {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--header-bg-solid);
+}
+
+.portfolio-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-base);
+}
+
+.portfolio-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.5;
+}
+
+.portfolio-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.45) 60%,
+    transparent 100%
+  );
+}
+
+.portfolio-hero-inner {
+  position: relative;
+  z-index: var(--z-content);
+  width: 100%;
+  padding: var(--section-spacing) var(--content-padding-x);
+  color: var(--primary-text);
+}
+
+.portfolio-hero-content {
+  max-width: 680px;
+}
+
+.portfolio-hero-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--primary-text);
+}
+
+.portfolio-hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 var(--spacing-md) 0;
+  line-height: 1.4;
+}
+
+.portfolio-hero-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+
+/* ─── Filters ────────────────────────────────────────────────────────────── */
+.portfolio-filters-wrap {
+  background: var(--gray-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.portfolio-filters-inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding-x);
+}
+
+.portfolio-filters {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.portfolio-filter-btn {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.portfolio-filter-btn:hover {
+  color: var(--gray-darker);
+  transform: translateY(-1px);
+}
+
+.portfolio-filter-btn--active {
+  color: var(--secondary-bg);
+  border-bottom-color: var(--secondary-bg);
+  transform: translateY(-1px);
+}
+
+/* ─── Section layout ────────────────────────────────────────────────────── */
+.portfolio-section {
+  padding: var(--section-spacing) var(--content-padding-x);
+}
+
+.portfolio-section--light {
+  background: var(--gray-light);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 85% 20%, rgba(200, 200, 200, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 10% 80%, rgba(180, 180, 180, 0.06) 0%, transparent 50%);
+}
+
+.portfolio-section-inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.portfolio-heading {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--gray-darker);
+  margin: 0 0 var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.portfolio-heading--left {
+  text-align: left;
+}
+
+.portfolio-subheading {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0 auto var(--spacing-xl) auto;
+  max-width: 640px;
+  text-align: center;
+}
+
+/* ─── Featured Projects ─────────────────────────────────────────────────── */
+.portfolio-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.portfolio-project-card {
+  background: var(--tertiary-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio-project-image-wrap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--gray-light);
+}
+
+.portfolio-project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-normal) var(--ease-in-out);
+}
+
+.portfolio-project-card:hover .portfolio-project-image {
+  transform: scale(1.08);
+}
+
+.portfolio-project-body {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.portfolio-project-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-darker);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.portfolio-project-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 0 var(--spacing-md) 0;
+  flex: 1;
+}
+
+.portfolio-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--gray-darker);
+  background: #e8e8e8;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  border: 1px solid #ddd;
+  align-self: flex-start;
+  transition: background-color var(--duration-fast), border-color var(--duration-fast);
+}
+
+.portfolio-project-link:hover {
+  background: #ddd;
+  border-color: #ccc;
+  color: var(--gray-darker);
+}
+
+.portfolio-project-arrow {
+  font-size: 18px !important;
+  transition: transform var(--duration-fast);
+}
+
+.portfolio-project-link:hover .portfolio-project-arrow {
+  transform: translateX(5px);
+}
+
+/* ─── Why Partner ────────────────────────────────────────────────────────── */
+.portfolio-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.portfolio-why-card {
+  background: var(--tertiary-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: box-shadow var(--duration-normal) var(--ease-in-out);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.portfolio-why-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-why-icon-wrap {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.portfolio-why-icon {
+  font-size: 40px !important;
+  color: var(--secondary-bg) !important;
+}
+
+.portfolio-why-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-darker);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.portfolio-why-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media screen and (max-width: 968px) {
+  .portfolio-hero-inner {
+    padding: var(--section-spacing) 24px;
+  }
+
+  .portfolio-section {
+    padding: 60px 24px;
+  }
+
+  .portfolio-projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-why-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media screen and (max-width: 640px) {
+  .portfolio-hero {
+    min-height: 550px;
+  }
+
+  .portfolio-hero-inner {
+    padding: var(--section-spacing) 20px;
+  }
+
+  .portfolio-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .portfolio-filter-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9375rem;
+  }
+
+  .portfolio-section {
+    padding: 48px 20px;
+  }
+
+}

@@ -1,0 +1,86 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import SectionTitle from '../../ui/SectionTitle/SectionTitle';
+import SectionSubtitle from '../../ui/SectionSubtitle/SectionSubtitle';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import portfolioBg from '../../../assets/images/sections/portfolio-bg.jpeg';
+import { featuredProjectsData } from '../../../data/portfolioPageData';
+import { revealSection, ScrollTrigger } from '../../../utils/gsapAnimations';
+import './Portfolio.css';
+
+const Portfolio: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    revealSection(sectionRef.current, '.portfolio-header *', { stagger: 0.08 });
+    revealSection(sectionRef.current, '.portfolio-item', { stagger: 0.15, start: 'top 75%' });
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+  }, []);
+
+  const nextSlide = () => {
+    const next = (currentIndex + 1) % featuredProjectsData.length;
+    const el = scrollRef.current?.querySelector(`[data-index="${next}"]`);
+    (el as HTMLElement)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    setCurrentIndex(next);
+  };
+
+  const prevSlide = () => {
+    const prev = (currentIndex - 1 + featuredProjectsData.length) % featuredProjectsData.length;
+    const el = scrollRef.current?.querySelector(`[data-index="${prev}"]`);
+    (el as HTMLElement)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    setCurrentIndex(prev);
+  };
+
+  return (
+    <section className="portfolio-section" ref={sectionRef}>
+      <div className="portfolio-background">
+        <img src={portfolioBg} alt="Portfolio Background" className="portfolio-bg-image" />
+        <div className="portfolio-overlay"></div>
+      </div>
+      <div className="portfolio-container section-container">
+        <div className="portfolio-header">
+          <SectionTitle className="portfolio-title">Our Portfolio</SectionTitle>
+          <SectionSubtitle className="portfolio-subtitle">Explore some of the innovative digital solutions we have built for businesses across various industries.</SectionSubtitle>
+        </div>
+        <div className="portfolio-carousel">
+          <button className="carousel-button carousel-button-left" onClick={prevSlide} aria-label="Previous">
+            <ChevronLeftIcon />
+          </button>
+          <div className="portfolio-items" ref={scrollRef}>
+            {featuredProjectsData.map((item, index) => (
+              <Link
+                key={item.id}
+                to={`/portfolio/case-study/${item.id}`}
+                className={`portfolio-item ${index === currentIndex ? 'active' : ''}`}
+                data-index={index}
+              >
+                <div className="portfolio-image-wrapper">
+                  <img src={item.image} alt={item.title} className="portfolio-image" />
+                  <div className="portfolio-info-overlay">
+                    <div className="portfolio-info-text">
+                      <h3 className="portfolio-item-title">{item.title}</h3>
+                      <p className="portfolio-item-category">{item.sector}</p>
+                    </div>
+                    <span className="portfolio-item-arrow" aria-hidden>
+                      <ArrowForwardIcon />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <button className="carousel-button carousel-button-right" onClick={nextSlide} aria-label="Next">
+            <ChevronRightIcon />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Portfolio;

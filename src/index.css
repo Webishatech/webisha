@@ -1,3 +1,16 @@
+/**
+ * Global styles. All design tokens live in styles/variables.css — do not define variables here.
+ */
+
+@import './styles/variables.css';
+
+/* Global container: single max-width for all section content */
+.section-container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,8 +18,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-  color: #ffffff;
+  background: var(--gradient-primary);
+  color: var(--primary-text);
   min-height: 100vh;
   background-attachment: fixed;
 }
@@ -14,18 +27,5 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  color: #4a9eff;
-}
-
-:root {
-  --primary-bg: #000000;
-  --secondary-bg: #b51919;
-  --tertiary-bg: #ffffff;
-  --primary-text: #ffffff;
-  --secondary-text: #8892b0;
-  --accent-color: #4a9eff;
-  --hover-color: #64b5f6;
-  --primary-text-color: #e3dcdc;
-  --secondary-text-color: #b51919;
-  --tertiary-text-color: #000000;
+  color: var(--code-color);
 }
