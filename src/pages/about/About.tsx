@@ -196,14 +196,14 @@ const About: React.FC = () => {
               </ul>
             </div>
             <div className="about-what-stats">
-              <div className="about-stats-row">
+              {/* <div className="about-stats-row">
                 {statisticsData.map((stat, index) => (
                   <div key={index} className="about-stat-block">
                     <span className="about-stat-number">{stat.number}</span>
                     <span className="about-stat-label">{stat.label}</span>
                   </div>
                 ))}
-              </div>
+              </div> */}
               <div className="about-stats-closing">
                 <span className="about-stats-closing-label">Our commitment</span>
                 <p className="about-stats-closing-text">

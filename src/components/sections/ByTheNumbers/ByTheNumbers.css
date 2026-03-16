@@ -6,6 +6,13 @@
 
 .by-the-numbers-container {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 48px;
+}
+
+.by-the-numbers-top {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -26,11 +33,11 @@
   margin-top: 12px;
 }
 
-/* Single row: four stats with vertical separators */
+/* Single row: four message items with vertical separators */
 .statistics-row {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   flex: 1;
   justify-content: flex-end;
   gap: 0;
@@ -67,12 +74,85 @@
   line-height: 1.4;
 }
 
+/* By-the-numbers cards grid */
+.by-the-numbers-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.by-the-numbers-card {
+  background: var(--tertiary-bg);
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.by-the-numbers-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+  border-color: rgba(181, 25, 25, 0.25);
+}
+
+.by-the-numbers-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.by-the-numbers-card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: rgba(181, 25, 25, 0.1);
+  color: var(--secondary-bg);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.by-the-numbers-card:hover .by-the-numbers-card-icon {
+  transform: scale(1.1);
+  background: rgba(181, 25, 25, 0.15);
+}
+
+.by-the-numbers-icon {
+  font-size: 28px !important;
+}
+
+.by-the-numbers-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-darker);
+  margin-bottom: 8px;
+  line-height: 1.2;
+  text-transform: capitalize;
+}
+
+.by-the-numbers-message {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #666666;
+  line-height: 1.5;
+}
+
 @media screen and (max-width: 968px) {
   .by-the-numbers-section {
     padding: var(--section-spacing, 80px) 24px;
   }
 
   .by-the-numbers-container {
+    gap: 40px;
+  }
+
+  .by-the-numbers-top {
     flex-direction: column;
     align-items: flex-start;
     gap: 40px;
@@ -98,6 +178,24 @@
     text-align: left;
     padding: 0 16px 0 12px;
   }
+
+  .by-the-numbers-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .by-the-numbers-card {
+    padding: 24px 20px;
+  }
+
+  .by-the-numbers-card-inner {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .by-the-numbers-card-icon {
+    margin-bottom: 12px;
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -120,6 +218,10 @@
     justify-content: center;
   }
 
+  .by-the-numbers-top {
+    align-items: center;
+  }
+
   .statistic-item {
     flex: 0 0 100%;
     padding: 0 10px;
@@ -132,5 +234,35 @@
 
   .statistic-label {
     font-size: 15px;
+  }
+
+  .by-the-numbers-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .by-the-numbers-card {
+    padding: 22px 20px;
+  }
+
+  .by-the-numbers-card-inner {
+    align-items: center;
+    text-align: center;
+  }
+
+  .by-the-numbers-card-icon {
+    margin-bottom: 12px;
+  }
+
+  .by-the-numbers-icon {
+    font-size: 24px !important;
+  }
+
+  .by-the-numbers-title {
+    font-size: 17px;
+  }
+
+  .by-the-numbers-message {
+    font-size: 14px;
   }
 }

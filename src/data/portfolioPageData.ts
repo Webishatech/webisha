@@ -5,7 +5,9 @@
 import prestiage from '../assets/images/portfolio/prestiage.png';
 import qtr from '../assets/images/portfolio/qtr.png';
 import sai from '../assets/images/portfolio/sai.png';
-import reviewImage from '../assets/images/reviews/1.jpeg';
+import karmanDronesUser from '../assets/images/reviews/karman.png';
+import presageUser from '../assets/images/reviews/presage.jpeg';
+import qtruser from '../assets/images/reviews/qtr.jpeg';
 
 export const portfolioFilters = ['All', 'Enterprise', 'Healthcare'] as const;
 
@@ -120,26 +122,26 @@ export interface PortfolioTestimonial {
 export const portfolioTestimonialsData: PortfolioTestimonial[] = [
   {
     id: 1,
-    name: 'Mike Anderson',
-    title: 'CEO',
-    company: 'MarrnWGas',
-    quote: 'Webisha Tech delivered an exceptional platform that streamlined our internal processes. Their attention to detail and expertise in technology is truly noteworthy.',
-    image: reviewImage,
+    name: 'Atul Sharma',
+    title: 'Founder',
+    company: 'Presage Insights',
+    quote: "We have redesigned our current website with new colors and components that are user-friendly, following modern UI standards and best practices.",
+    image: presageUser,
   },
   {
     id: 2,
-    name: 'Anna Roberts',
-    title: 'CEO',
-    company: 'Healthsense',
-    quote: "The mobile app Webisha Tech developed for us is a game changer. It's secure, user-friendly, and meets all our HIPAA compliance requirements.",
-    image: reviewImage,
+    name: 'Pavan Shetty',
+    title: 'CTO',
+    company: 'Karman Drones',
+    quote: 'Webisha Tech redesigned our product and built proof-of-concept mobile apps for AI-powered image processing. Their work was thorough and delivered real results.',
+    image: karmanDronesUser,
   },
   {
     id: 3,
-    name: 'Dylan Carter',
-    title: 'CEO',
-    company: 'Seemce Solutions',
-    quote: "From concept to launch, Webisha Tech was a great partner. Their team's best practices and commitment to quality delivered outstanding results.",
-    image: reviewImage,
+    name: 'Jagadeesh Maira',
+    title: 'Founder',
+    company: 'QTR',
+    quote: "The team developed a modern iOS app for planner tracking that our users rely on daily. Clean design, smooth performance, and on-time delivery—exactly what we needed.",
+    image: qtruser,
   },
 ];

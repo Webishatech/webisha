@@ -142,32 +142,136 @@
   gap: var(--spacing-lg);
 }
 
-/* ─── Why Choose (stats) ────────────────────────────────────────────────── */
-.services-stats-row {
+/* ─── Why Choose Webisha Tech (Equal grid + gradient + animated border) ─────── */
+.services-why-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-lg);
+  gap: 24px;
   margin-top: var(--spacing-md);
 }
 
-.services-stat {
-  text-align: center;
+.services-why-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 28px 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: services-why-enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.services-stat-number {
-  display: block;
+/* Gradient background */
+.services-why-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 50%, #f5f5f5 100%);
+  z-index: 0;
+}
+
+.services-why-card:hover::before {
+  background: linear-gradient(135deg, #ffffff 0%, #fff8f8 30%, #fff0f0 70%, #ffffff 100%);
+  background-size: 200% 200%;
+  animation: services-why-bg-shift 3s ease infinite;
+}
+
+@keyframes services-why-bg-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Animated gradient border */
+.services-why-card-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(to right, #b51919, #d14d56, #b51919, #8b1a1a);
+  background-size: 300% 300%;
+  animation: services-why-border-shift 4s ease infinite;
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.services-why-card:hover .services-why-card-glow {
+  opacity: 1;
+  animation: services-why-border-shift 2s linear infinite;
+}
+
+.services-why-card-glow::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  z-index: 1;
+}
+
+@keyframes services-why-border-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes services-why-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.services-why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(181, 25, 25, 0.15);
+}
+
+.services-why-card-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.services-why-icon-wrap {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(181, 25, 25, 0.15), rgba(181, 25, 25, 0.08));
+  color: var(--secondary-bg);
+  transition: transform 0.3s ease;
+}
+
+.services-why-card:hover .services-why-icon-wrap {
+  transform: scale(1.1);
+}
+
+.services-why-icon {
+  font-size: 28px !important;
+}
+
+.services-why-title {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--gray-darker);
-  line-height: 1.2;
-  margin-bottom: var(--spacing-xs);
+  margin: 0 0 var(--spacing-sm) 0;
 }
 
-.services-stat-label {
+.services-why-desc {
   font-size: 0.9375rem;
+  line-height: 1.65;
   color: #555;
-  line-height: 1.4;
+  margin: 0;
 }
 
 /* ─── How We Work ─────────────────────────────────────────────────────────── */
@@ -316,7 +420,7 @@
     grid-template-columns: 1fr;
   }
 
-  .services-stats-row {
+  .services-why-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -342,8 +446,13 @@
     padding: 48px 20px;
   }
 
-  .services-stats-row {
+  .services-why-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .services-why-card {
+    padding: 24px 20px;
   }
 
   .services-process-grid {
