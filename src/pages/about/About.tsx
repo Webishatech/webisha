@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import featuredImage from '../../assets/images/about/featured.png';
 import heroSectionImage from '../../assets/images/about/story.png';
-import { statisticsData } from '../../data/statisticsData';
+// import { statisticsData } from '../../data/statisticsData';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import LaptopIcon from '@mui/icons-material/Laptop';

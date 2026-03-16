@@ -5,7 +5,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import SpeedIcon from '@mui/icons-material/Speed';
-import { statisticsData } from '../../../data/statisticsData';
+// import { statisticsData } from '../../../data/statisticsData';
 import { byTheNumbersData, type ByTheNumbersIcon } from '../../../data/byTheNumbersData';
 import { revealSection, ScrollTrigger } from '../../../utils/gsapAnimations';
 import './ByTheNumbers.css';
