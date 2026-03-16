@@ -2,14 +2,18 @@ import React, { useRef, useEffect } from 'react';
 import Button from '../../components/ui/Button/Button';
 import heroImage from '../../assets/images/sections/hero-section.jpeg';
 import { servicesData } from '../../data/servicesData';
-import { statisticsData } from '../../data/statisticsData';
 import { howWeWorkData, type HowWeWorkStep } from '../../data/howWeWorkData';
+import { whyChooseData, type WhyChooseIcon } from '../../data/whyChooseData';
 import { ServiceCard } from '../../components/ui';
 import { heroEntrance, revealSection, ScrollTrigger } from '../../utils/gsapAnimations';
 import SearchIcon from '@mui/icons-material/Search';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import CodeIcon from '@mui/icons-material/Code';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import SpeedIcon from '@mui/icons-material/Speed';
+import PeopleIcon from '@mui/icons-material/People';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import './Services.css';
 
 const HowWeWorkIcon: React.FC<{ type: HowWeWorkStep['icon'] }> = ({ type }) => {
@@ -18,6 +22,13 @@ const HowWeWorkIcon: React.FC<{ type: HowWeWorkStep['icon'] }> = ({ type }) => {
   if (type === 'design') return <LightbulbIcon className={iconClass} />;
   if (type === 'development') return <CodeIcon className={iconClass} />;
   return <RocketLaunchIcon className={iconClass} />;
+};
+
+const WhyChooseIconMap: Record<WhyChooseIcon, React.ComponentType<{ className?: string }>> = {
+  agile: SpeedIcon,
+  client: PeopleIcon,
+  scalable: TimelineIcon,
+  quality: VerifiedUserIcon,
 };
 
 const ServicesPage: React.FC = () => {
@@ -41,7 +52,7 @@ const ServicesPage: React.FC = () => {
   useEffect(() => {
     if (!whyRef.current) return;
     revealSection(whyRef.current, '.services-heading, .services-subheading', { stagger: 0.08 });
-    revealSection(whyRef.current, '.services-stat', { stagger: 0.12 });
+    revealSection(whyRef.current, '.services-why-card', { stagger: 0.12 });
     return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
@@ -116,13 +127,26 @@ const ServicesPage: React.FC = () => {
           <p className="services-subheading">
             We follow a structured and agile development process to ensure project success.
           </p>
-          <div className="services-stats-row">
-            {statisticsData.map((stat, index) => (
-              <div key={index} className="services-stat">
-                <span className="services-stat-number">{stat.number}</span>
-                <span className="services-stat-label">{stat.label}</span>
-              </div>
-            ))}
+          <div className="services-why-grid">
+            {whyChooseData.map((item, index) => {
+              const Icon = WhyChooseIconMap[item.icon];
+              return (
+                <div
+                  key={index}
+                  className="services-why-card"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="services-why-card-glow" aria-hidden />
+                  <div className="services-why-card-content">
+                    <div className="services-why-icon-wrap">
+                      <Icon className="services-why-icon" />
+                    </div>
+                    <h3 className="services-why-title">{item.title}</h3>
+                    <p className="services-why-desc">{item.description}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

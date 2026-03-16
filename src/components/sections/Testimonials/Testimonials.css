@@ -214,13 +214,20 @@
     width: 100%;
     min-width: 0;
     max-width: none;
+    min-height: auto;
+    height: auto;
     padding: 18px;
     box-sizing: border-box;
   }
 
+  /* Show full quote on mobile - no line clamp, card grows with content */
   .testimonial-quote {
     font-size: 14px;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    display: block;
+    overflow: visible;
+    -webkit-box-orient: unset;
   }
 
   .testimonials-arrow {

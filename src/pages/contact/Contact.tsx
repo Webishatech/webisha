@@ -40,6 +40,7 @@ const Contact: React.FC = () => {
     subject: '',
     message: '',
   });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -48,9 +49,38 @@ const Contact: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic can be added here
+    setStatus('sending');
+  
+
+    try {
+      const response = await fetch(
+        `https://formspree.io/f/${process.env.REACT_APP_FORMSPREE_ID || 'YOUR_FORM_ID'}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject || 'Contact Form - Webisha Tech',
+            message: formData.message,
+            _replyto: formData.email,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        console.error('Form submission failed:', response);
+        setStatus('error');
+      }
+    } catch {
+      console.error('Form submission failed:',);
+      setStatus('error');
+    }
   };
 
   return (
@@ -141,13 +171,24 @@ const Contact: React.FC = () => {
                     rows={5}
                   />
                 </label>
+                {status === 'success' && (
+                  <p className="contact-form-status contact-form-status--success" role="status">
+                    Thanks! Your message has been sent. We'll get back to you soon.
+                  </p>
+                )}
+                {status === 'error' && (
+                  <p className="contact-form-status contact-form-status--error" role="alert">
+                    Something went wrong. Please try again or email us directly.
+                  </p>
+                )}
                 <Button
                   type="submit"
                   variant="primary"
                   size="large"
                   className="contact-submit-btn"
+                  disabled={status === 'sending'}
                 >
-                  Send Message
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </div>
