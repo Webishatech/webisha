@@ -83,9 +83,9 @@ const ServicesPage: React.FC = () => {
               Get in Touch
             </Button>
           </div>
-          <div className="services-hero-visual" aria-hidden>
+          {/* <div className="services-hero-visual" aria-hidden>
             <div className="services-hero-visual-placeholder" />
-          </div>
+          </div> */}
         </div>
       </section>
 

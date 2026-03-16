@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
           <div className="footer-column footer-column-middle">
             <div className="contact-item">
               <img src={mailIcon} alt="Email" className="contact-icon" />
-              <a href="mailto:info@webisha.com">info@webisha.com</a>
+              <a href="mailto:info@webishatech.com">info@webishatech.com</a>
             </div>
             <div className="contact-item">
               <img src={phoneIcon} alt="Phone" className="contact-icon" />
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <img src={twitterIcon} alt="Twitter" />
               </a>
-              <a href="mailto:info@webisha.com" aria-label="Email">
+              <a href="mailto:info@webishatech.com" aria-label="Email">
                 <img src={mailIcon} alt="Email" />
               </a>
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">

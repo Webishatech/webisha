@@ -300,6 +300,17 @@
     min-height: 550px;
   }
 
+  .hero-container {
+    justify-content: center;
+  }
+
+  .hero-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .hero-title {
     font-size: 32px;
   }
