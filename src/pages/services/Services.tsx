@@ -52,7 +52,6 @@ const ServicesPage: React.FC = () => {
   useEffect(() => {
     if (!whyRef.current) return;
     revealSection(whyRef.current, '.services-heading, .services-subheading', { stagger: 0.08 });
-    revealSection(whyRef.current, '.services-why-card', { stagger: 0.12 });
     return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
