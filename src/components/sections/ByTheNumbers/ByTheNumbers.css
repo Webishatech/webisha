@@ -108,15 +108,22 @@
   .by-the-numbers-container {
     padding: 0;
     gap: 32px;
+    align-items: center;
   }
 
   .by-the-numbers-header {
-    padding-left: 10px;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .statistics-row {
+    justify-content: center;
   }
 
   .statistic-item {
     flex: 0 0 100%;
     padding: 0 10px;
+    text-align: center;
   }
 
   .statistic-number {

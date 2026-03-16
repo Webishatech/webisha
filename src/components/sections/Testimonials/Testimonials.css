@@ -193,20 +193,38 @@
     padding: var(--section-spacing, 80px) 20px 0;
   }
 
+  .testimonials-header {
+    text-align: center;
+  }
+
+  /* Center carousel and ensure full-width track */
   .testimonials-carousel {
-    padding-left: 10px;
+    padding-inline: 0;
+    width: 100%;
+  }
+
+  .testimonials-track {
+    width: 100%;
+    flex: 1 1 100%;
+    min-width: 0;
   }
 
   .testimonial-card {
     flex: 0 0 100%;
-    min-width: 180px;
+    width: 100%;
+    min-width: 0;
     max-width: none;
     padding: 18px;
+    box-sizing: border-box;
   }
 
   .testimonial-quote {
     font-size: 14px;
     -webkit-line-clamp: 3;
+  }
+
+  .testimonials-arrow {
+    flex-shrink: 0;
   }
 
   .testimonials-arrow svg {

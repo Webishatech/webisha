@@ -239,6 +239,10 @@
     padding: var(--section-spacing, 80px) 20px;
   }
 
+  .portfolio-header {
+    text-align: center;
+  }
+
   .portfolio-items {
     gap: 16px;
   }
