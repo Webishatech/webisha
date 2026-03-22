@@ -6,8 +6,6 @@ import { getCaseStudyByProjectId } from '../../data/portfolioPageData';
 import { heroEntrance, revealSection, ScrollTrigger } from '../../utils/gsapAnimations';
 import './CaseStudy.css';
 
-/** For now we use the same project image multiple times; replace with real gallery images later */
-const PROJECT_IMAGE_COUNT = 3;
 
 const CaseStudyPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -81,8 +79,10 @@ const CaseStudyPage: React.FC = () => {
     );
   }
 
-  const { image, title, description, sector, overview, challenge, solution, results, technologies } = caseStudy;
-  const projectImages = Array.from({ length: PROJECT_IMAGE_COUNT }, () => image);
+  const { title, description, sector, overview, challenge, solution, results, technologies } = caseStudy;
+  const projectImages = caseStudy.galleryImages && caseStudy.galleryImages.length > 0
+    ? caseStudy.galleryImages
+    : Array.from({ length: 3 }, () => caseStudy.image);
 
   return (
     <div className="case-study-page">
@@ -109,7 +109,7 @@ const CaseStudyPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Project gallery — multiple images (same image repeated for now) */}
+      {/* Project gallery */}
       <section className="case-study-section case-study-section--light case-study-section--gallery" ref={galleryRef}>
         <div className="case-study-section-inner section-container">
           <h2 className="case-study-section-heading">Project Highlights</h2>
