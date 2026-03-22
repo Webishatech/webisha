@@ -1,4 +1,5 @@
 export interface Service {
+  link: string;
   icon: 'web' | 'mobile' | 'ai';
   title: string;
   description: string;
@@ -21,18 +22,21 @@ export const servicesData: Service[] = [
   {
     icon: 'web',
     title: 'Web Development',
+    link: 'web-development',
     description:
       'We build responsive, high-performance websites and web applications tailored to your business needs.',
   },
   {
     icon: 'mobile',
     title: 'Mobile Applications',
+    link: 'mobile-development',
     description:
       'We develop high-performance mobile apps for iOS and Android with seamless user experiences.',
   },
   {
     icon: 'ai',
     title: 'AI-Powered Solutions',
+    link: 'ai-development',
     description:
       'We design and build AI-powered systems that automate operations, enhance decision-making, and enable smarter digital products.',
   },
@@ -77,6 +81,8 @@ const serviceDetailContentByIndex: Record<number, ServiceDetailContent> = {
     technologies: [
       'React',
       'Next.js',
+      'Angular',
+      'Laravel',
       'Vue.js',
       'Node.js',
       'TypeScript',
@@ -131,8 +137,8 @@ const serviceDetailContentByIndex: Record<number, ServiceDetailContent> = {
     technologies: [
       'React Native',
       'Flutter',
-      'Swift',
-      'Kotlin',
+      // 'Swift',
+      // 'Kotlin',
       'Firebase',
       'AWS Amplify',
       'GraphQL',
@@ -207,4 +213,14 @@ export function getServiceDetailByIndex(serviceIndex: number): ServiceDetailData
   const content = serviceDetailContentByIndex[serviceIndex];
   if (!service || !content) return null;
   return { ...service, ...content };
+}
+
+/** Get full service detail data for a service slug/link. Returns null if not found. */
+export function getServiceDetailByLink(serviceLink: string): ServiceDetailData | null {
+  const normalizedLink = serviceLink.trim().toLowerCase();
+  const serviceIndex = servicesData.findIndex(
+    (service) => service.link.trim().toLowerCase() === normalizedLink
+  );
+  if (serviceIndex < 0) return null;
+  return getServiceDetailByIndex(serviceIndex);
 }

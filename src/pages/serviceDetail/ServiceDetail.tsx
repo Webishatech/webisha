@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import heroImage from '../../assets/images/sections/hero-section.jpeg';
-import { getServiceDetailByIndex } from '../../data/servicesData';
+import { getServiceDetailByIndex, getServiceDetailByLink } from '../../data/servicesData';
 import { heroEntrance, revealSection, ScrollTrigger } from '../../utils/gsapAnimations';
 import Button from '../../components/ui/Button/Button';
 import ComputerIcon from '@mui/icons-material/Computer';
@@ -20,8 +20,13 @@ const ServiceIcon: React.FC<{ type: 'web' | 'mobile' | 'ai' }> = ({ type }) => {
 
 const ServiceDetailPage: React.FC = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
+
   const serviceIndex = serviceId ? parseInt(serviceId, 10) : NaN;
-  const serviceDetail = Number.isNaN(serviceIndex) ? null : getServiceDetailByIndex(serviceIndex);
+  const serviceDetail = serviceId
+    ? Number.isNaN(serviceIndex)
+      ? getServiceDetailByLink(serviceId)
+      : getServiceDetailByIndex(serviceIndex)
+    : null;
 
   const heroRef = useRef<HTMLDivElement>(null);
   const overviewRef = useRef<HTMLElement>(null);
@@ -96,6 +101,8 @@ const ServiceDetailPage: React.FC = () => {
   }
 
   const { icon, title, description, overview, features, process, technologies, benefits } = serviceDetail;
+  const featuredItems = features.slice(0, 4);
+  const benefitItems = benefits.slice(0, 4);
 
   return (
     <div className="service-detail-page">
@@ -107,9 +114,9 @@ const ServiceDetailPage: React.FC = () => {
         </div>
         <div className="service-detail-hero-inner section-container">
           <div className="service-detail-hero-content" ref={heroRef}>
-            <div className="service-detail-hero-icon-wrap">
+            {/* <div className="service-detail-hero-icon-wrap">
               <ServiceIcon type={icon} />
-            </div>
+            </div> */}
             <h1 className="service-detail-hero-title">{title}</h1>
             <p className="service-detail-hero-desc">{description}</p>
           </div>
@@ -126,17 +133,20 @@ const ServiceDetailPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Key Features */}
       <section className="service-detail-section service-detail-section--alt" ref={featuresRef}>
         <div className="service-detail-section-inner section-container">
           <h2 className="service-detail-section-heading">Key Features</h2>
           <ul className="service-detail-features-list">
-            {features.map((feature, index) => (
+            {featuredItems.map((item, index) => (
               <li key={index} className="service-detail-feature-item">
-                <div className="service-detail-feature-icon">
-                  <CheckCircleIcon />
+                <div className="service-detail-feature-item-top">
+                  <span className="service-detail-feature-index">Feature {String(index + 1).padStart(2, '0')}</span>
+                  <div className="service-detail-feature-icon" aria-hidden>
+                    <CheckCircleIcon />
+                  </div>
                 </div>
-                <span className="service-detail-feature-text">{feature}</span>
+                <span className="service-detail-feature-text">{item}</span>
               </li>
             ))}
           </ul>
@@ -184,10 +194,15 @@ const ServiceDetailPage: React.FC = () => {
         <div className="service-detail-section-inner section-container">
           <h2 className="service-detail-section-heading">Benefits</h2>
           <ul className="service-detail-benefits-list">
-            {benefits.map((benefit, index) => (
+            {benefitItems.map((benefit, index) => (
               <li key={index} className="service-detail-benefit-item">
-                <div className="service-detail-benefit-icon">
-                  <CheckCircleIcon />
+                <div className="service-detail-benefit-item-top">
+                  <div className="service-detail-benefit-icon" aria-hidden>
+                    <CheckCircleIcon />
+                  </div>
+                  <span className="service-detail-benefit-label">
+                    Business Benefit {String(index + 1).padStart(2, '0')}
+                  </span>
                 </div>
                 <span className="service-detail-benefit-text">{benefit}</span>
               </li>
