@@ -28,7 +28,7 @@ const Services: React.FC = () => {
             <ServiceCard
               key={index}
               service={service}
-              linkHref="/contact"
+              linkHref={`/services/${index}`}
               linkText="Learn More"
             />
           ))}

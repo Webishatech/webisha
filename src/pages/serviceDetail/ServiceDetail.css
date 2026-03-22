@@ -1,0 +1,559 @@
+/**
+ * Service detail page — matches CaseStudy/About layout: hero + light sections with section-container
+ * Uses variables.css. BEM: service-detail-*
+ */
+
+.service-detail-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ─── Not found ──────────────────────────────────────────────────────────── */
+.service-detail-page--not-found {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-light);
+}
+
+.service-detail-not-found-inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--section-spacing) var(--content-padding-x);
+}
+
+.service-detail-not-found-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--gray-darker);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.service-detail-not-found-text {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.service-detail-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--gray-darker);
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+
+.service-detail-back-link:hover {
+  color: var(--secondary-bg);
+}
+
+.service-detail-back-icon {
+  font-size: 20px !important;
+}
+
+/* ─── Hero (same pattern as About featured / Contact hero) ───────────────── */
+.service-detail-hero {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--header-bg-solid);
+}
+
+.service-detail-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-base);
+}
+
+.service-detail-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.55;
+}
+
+.service-detail-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 55%,
+    transparent 100%
+  );
+}
+
+.service-detail-hero-inner {
+  position: relative;
+  z-index: var(--z-content);
+  width: 100%;
+  padding: 40px var(--content-padding-x);
+  display: flex;
+  align-items: center;
+  color: var(--primary-text);
+}
+
+.service-detail-hero-content {
+  max-width: 640px;
+}
+
+.service-detail-hero-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-md);
+  backdrop-filter: blur(10px);
+}
+
+.service-detail-icon {
+  font-size: 40px !important;
+  color: var(--secondary-bg) !important;
+}
+
+.service-detail-hero-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--primary-text);
+}
+
+.service-detail-hero-desc {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+}
+
+/* ─── Section layout — tighter spacing to reduce empty space ─────────────── */
+.service-detail-section {
+  padding: 28px var(--content-padding-x);
+}
+
+.service-detail-section--light {
+  background: var(--gray-light);
+  color: var(--gray-darker);
+}
+
+.service-detail-section--alt {
+  background: var(--gray-light);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 85% 20%, rgba(200, 200, 200, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 10% 80%, rgba(180, 180, 180, 0.06) 0%, transparent 50%);
+}
+
+.service-detail-section-inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.service-detail-section-header {
+  margin-bottom: var(--spacing-md);
+}
+
+.service-detail-section-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--secondary-bg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.service-detail-section-heading {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--gray-darker);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.service-detail-section-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #444;
+  margin: 0;
+}
+
+.service-detail-overview-content {
+  max-width: 900px;
+  margin: 0;
+}
+
+/* ─── Features list ──────────────────────────────────────────────────────── */
+.service-detail-features-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.service-detail-feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  color: #444;
+  padding: 22px 22px 20px;
+  background: var(--tertiary-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(181, 25, 25, 0.14);
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-detail-feature-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(17, 24, 39, 0.12);
+}
+
+.service-detail-feature-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+}
+
+.service-detail-feature-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--secondary-bg);
+  background: rgba(181, 25, 25, 0.1);
+}
+
+.service-detail-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  color: var(--primary-text);
+  background: linear-gradient(135deg, var(--secondary-bg), #d95a5a);
+  box-shadow: 0 8px 18px rgba(181, 25, 25, 0.3);
+}
+
+.service-detail-feature-icon svg {
+  font-size: 20px !important;
+}
+
+.service-detail-feature-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #2c2c2c;
+}
+
+/* ─── Process grid ──────────────────────────────────────────────────────── */
+.service-detail-process-wrapper {
+  margin-top: var(--spacing-sm);
+}
+
+.service-detail-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.service-detail-process-card {
+  background: var(--tertiary-bg);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-detail-process-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.service-detail-process-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--secondary-bg);
+  color: var(--primary-text);
+  border-radius: var(--radius-md);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+}
+
+.service-detail-process-content {
+  position: relative;
+}
+
+.service-detail-process-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-darker);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.service-detail-process-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+.service-detail-process-connector {
+  display: none;
+}
+
+/* ─── Technologies list ──────────────────────────────────────────────────── */
+.service-detail-tech-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
+}
+
+.service-detail-tech-item {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--secondary-bg);
+  background: var(--tertiary-bg);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(181, 25, 25, 0.25);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.service-detail-tech-text {
+  position: relative;
+}
+
+/* ─── Benefits list ──────────────────────────────────────────────────────── */
+.service-detail-benefits-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.service-detail-benefit-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  color: #444;
+  padding: 20px 22px;
+  background: var(--tertiary-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-detail-benefit-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-bg) 0%, #d95a5a 100%);
+}
+
+.service-detail-benefit-item-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-detail-benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  color: var(--secondary-bg);
+  background: rgba(181, 25, 25, 0.1);
+}
+
+.service-detail-benefit-icon svg {
+  font-size: 18px !important;
+}
+
+.service-detail-benefit-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.service-detail-benefit-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #2f2f2f;
+}
+
+/* ─── CTA Banner ─────────────────────────────────────────────────────────── */
+.service-detail-cta {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--header-bg-solid);
+}
+
+.service-detail-cta-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-base);
+}
+
+.service-detail-cta-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.55;
+}
+
+.service-detail-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 55%,
+    transparent 100%
+  );
+}
+
+.service-detail-cta-inner {
+  position: relative;
+  z-index: var(--z-content);
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 60px var(--content-padding-x);
+  text-align: center;
+  color: var(--primary-text);
+}
+
+.service-detail-cta-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--primary-text);
+}
+
+.service-detail-cta-text {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 var(--spacing-lg) 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-detail-cta-btn {
+  margin-top: var(--spacing-md);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media screen and (max-width: 968px) {
+  .service-detail-hero {
+    min-height: 520px;
+  }
+
+  .service-detail-hero-inner {
+    padding: 32px 24px;
+  }
+
+  .service-detail-section {
+    padding: 24px 24px;
+  }
+
+  .service-detail-features-list,
+  .service-detail-benefits-list {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail-process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .service-detail-hero {
+    min-height: 550px;
+  }
+
+  .service-detail-hero-inner {
+    padding: 28px 20px;
+  }
+
+  .service-detail-hero-icon-wrap {
+    width: 56px;
+    height: 56px;
+  }
+
+  .service-detail-icon {
+    font-size: 36px !important;
+  }
+
+  .service-detail-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .service-detail-section {
+    padding: 20px 20px;
+  }
+
+  .service-detail-cta-inner {
+    padding: 48px 20px;
+  }
+}
