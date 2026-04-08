@@ -10,6 +10,7 @@ import SignIn from '../pages/signIn/SignIn';
 import About from '../pages/about/About';
 import Contact from '../pages/contact/Contact';
 import ServicesPage from '../pages/services/Services';
+import ServiceDetailPage from '../pages/serviceDetail/ServiceDetail';
 import PortfolioPage from '../pages/portfolio/Portfolio';
 import CaseStudyPage from '../pages/caseStudy/CaseStudy';
 
@@ -41,6 +42,11 @@ export const routes: RouteConfig[] = [
     label: 'Services',
   },
   {
+    path: '/services/:serviceId',
+    element: ServiceDetailPage,
+    label: 'Service Detail',
+  },
+  {
     path: '/portfolio',
     element: PortfolioPage,
     label: 'Portfolio',
@@ -63,6 +69,7 @@ export const ROUTE_PATHS = {
   SIGN_IN: '/signin',
   ABOUT: '/about',
   SERVICES: '/services',
+  SERVICE_DETAIL: '/services',
   PORTFOLIO: '/portfolio',
   CASE_STUDY: '/portfolio/case-study',
   CONTACT: '/contact',
